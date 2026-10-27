@@ -16,6 +16,7 @@ import (
 type RACProviderInitParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate authenticationFlow.
@@ -27,6 +28,7 @@ type RACProviderInitParameters struct {
 	AuthenticationFlowSelector *v2.Selector `json:"authenticationFlowSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate authorizationFlow.
@@ -78,6 +80,7 @@ type RACProviderObservation struct {
 type RACProviderParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
@@ -90,6 +93,7 @@ type RACProviderParameters struct {
 	AuthenticationFlowSelector *v2.Selector `json:"authenticationFlowSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 

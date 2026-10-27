@@ -229,9 +229,26 @@ var references = map[string]map[string]string{
 	},
 }
 
+// uuidExtractor makes a reference resolve to the "uuid" attribute of the
+// target instead of its external name. The Terraform id of a flow or of an
+// application is its slug, while every argument that points at one of them
+// takes its UUID.
+const uuidExtractor = "github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath(\"uuid\",true)"
+
+// uuidTargets are the Terraform types whose id is not what a reference to them
+// has to carry.
+var uuidTargets = map[string]bool{
+	"authentik_flow":        true,
+	"authentik_application": true,
+}
+
 // addReferences sets the references of a resource.
 func addReferences(r *ujconfig.Resource) {
 	for field, target := range references[r.Name] {
-		r.References[field] = ujconfig.Reference{TerraformName: target}
+		ref := ujconfig.Reference{TerraformName: target}
+		if uuidTargets[target] {
+			ref.Extractor = uuidExtractor
+		}
+		r.References[field] = ref
 	}
 }

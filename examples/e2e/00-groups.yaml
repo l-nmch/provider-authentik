@@ -1,0 +1,19 @@
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: Group
+metadata:
+  name: xptest-parent
+  namespace: xptest
+spec:
+  forProvider:
+    name: xptest-parent
+---
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: Group
+metadata:
+  name: xptest-child
+  namespace: xptest
+spec:
+  forProvider:
+    name: xptest-child
+    parentsRefs:
+      - name: xptest-parent

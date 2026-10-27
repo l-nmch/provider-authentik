@@ -60,6 +60,7 @@ type BrandInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	FlowAuthentication *string `json:"flowAuthentication,omitempty" tf:"flow_authentication,omitempty"`
 
 	// Reference to a Flow in flow to populate flowAuthentication.
@@ -72,6 +73,7 @@ type BrandInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	FlowDeviceCode *string `json:"flowDeviceCode,omitempty" tf:"flow_device_code,omitempty"`
 
 	// Reference to a Flow in flow to populate flowDeviceCode.
@@ -84,6 +86,7 @@ type BrandInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	FlowInvalidation *string `json:"flowInvalidation,omitempty" tf:"flow_invalidation,omitempty"`
 
 	// Reference to a Flow in flow to populate flowInvalidation.
@@ -96,6 +99,7 @@ type BrandInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	FlowLockdown *string `json:"flowLockdown,omitempty" tf:"flow_lockdown,omitempty"`
 
 	// Reference to a Flow in flow to populate flowLockdown.
@@ -108,6 +112,7 @@ type BrandInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	FlowRecovery *string `json:"flowRecovery,omitempty" tf:"flow_recovery,omitempty"`
 
 	// Reference to a Flow in flow to populate flowRecovery.
@@ -120,6 +125,7 @@ type BrandInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	FlowUnenrollment *string `json:"flowUnenrollment,omitempty" tf:"flow_unenrollment,omitempty"`
 
 	// Reference to a Flow in flow to populate flowUnenrollment.
@@ -132,6 +138,7 @@ type BrandInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	FlowUserSettings *string `json:"flowUserSettings,omitempty" tf:"flow_user_settings,omitempty"`
 
 	// Reference to a Flow in flow to populate flowUserSettings.
@@ -276,6 +283,7 @@ type BrandParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	FlowAuthentication *string `json:"flowAuthentication,omitempty" tf:"flow_authentication,omitempty"`
 
@@ -289,6 +297,7 @@ type BrandParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	FlowDeviceCode *string `json:"flowDeviceCode,omitempty" tf:"flow_device_code,omitempty"`
 
@@ -302,6 +311,7 @@ type BrandParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	FlowInvalidation *string `json:"flowInvalidation,omitempty" tf:"flow_invalidation,omitempty"`
 
@@ -315,6 +325,7 @@ type BrandParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	FlowLockdown *string `json:"flowLockdown,omitempty" tf:"flow_lockdown,omitempty"`
 
@@ -328,6 +339,7 @@ type BrandParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	FlowRecovery *string `json:"flowRecovery,omitempty" tf:"flow_recovery,omitempty"`
 
@@ -341,6 +353,7 @@ type BrandParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	FlowUnenrollment *string `json:"flowUnenrollment,omitempty" tf:"flow_unenrollment,omitempty"`
 
@@ -354,6 +367,7 @@ type BrandParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	FlowUserSettings *string `json:"flowUserSettings,omitempty" tf:"flow_user_settings,omitempty"`
 

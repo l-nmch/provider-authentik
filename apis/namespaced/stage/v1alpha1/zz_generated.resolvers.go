@@ -9,6 +9,7 @@ package v1alpha1
 import (
 	"context"
 	reference "github.com/crossplane/crossplane-runtime/v2/pkg/reference"
+	resource "github.com/crossplane/upjet/v2/pkg/resource"
 	v1alpha12 "github.com/l-nmch/provider-authentik/apis/namespaced/core/v1alpha1"
 	v1alpha1 "github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1"
 	v1alpha11 "github.com/l-nmch/provider-authentik/apis/namespaced/propertymapping/v1alpha1"
@@ -25,7 +26,7 @@ func (mg *AccountLockdownStage) ResolveReferences(ctx context.Context, c client.
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SelfServiceCompletionFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.SelfServiceCompletionFlowRef,
 		Selector:     mg.Spec.ForProvider.SelfServiceCompletionFlowSelector,
@@ -42,7 +43,7 @@ func (mg *AccountLockdownStage) ResolveReferences(ctx context.Context, c client.
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.SelfServiceCompletionFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.SelfServiceCompletionFlowRef,
 		Selector:     mg.Spec.InitProvider.SelfServiceCompletionFlowSelector,
@@ -69,7 +70,7 @@ func (mg *AuthenticatorDuoStage) ResolveReferences(ctx context.Context, c client
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.ForProvider.ConfigureFlowSelector,
@@ -86,7 +87,7 @@ func (mg *AuthenticatorDuoStage) ResolveReferences(ctx context.Context, c client
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.InitProvider.ConfigureFlowSelector,
@@ -113,7 +114,7 @@ func (mg *AuthenticatorEmailStage) ResolveReferences(ctx context.Context, c clie
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.ForProvider.ConfigureFlowSelector,
@@ -130,7 +131,7 @@ func (mg *AuthenticatorEmailStage) ResolveReferences(ctx context.Context, c clie
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.InitProvider.ConfigureFlowSelector,
@@ -157,7 +158,7 @@ func (mg *AuthenticatorEndpointGDTCStage) ResolveReferences(ctx context.Context,
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.ForProvider.ConfigureFlowSelector,
@@ -174,7 +175,7 @@ func (mg *AuthenticatorEndpointGDTCStage) ResolveReferences(ctx context.Context,
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.InitProvider.ConfigureFlowSelector,
@@ -201,7 +202,7 @@ func (mg *AuthenticatorSMSStage) ResolveReferences(ctx context.Context, c client
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.ForProvider.ConfigureFlowSelector,
@@ -235,7 +236,7 @@ func (mg *AuthenticatorSMSStage) ResolveReferences(ctx context.Context, c client
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.InitProvider.ConfigureFlowSelector,
@@ -279,7 +280,7 @@ func (mg *AuthenticatorStaticStage) ResolveReferences(ctx context.Context, c cli
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.ForProvider.ConfigureFlowSelector,
@@ -296,7 +297,7 @@ func (mg *AuthenticatorStaticStage) ResolveReferences(ctx context.Context, c cli
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.InitProvider.ConfigureFlowSelector,
@@ -323,7 +324,7 @@ func (mg *AuthenticatorTOTPStage) ResolveReferences(ctx context.Context, c clien
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.ForProvider.ConfigureFlowSelector,
@@ -340,7 +341,7 @@ func (mg *AuthenticatorTOTPStage) ResolveReferences(ctx context.Context, c clien
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.InitProvider.ConfigureFlowSelector,
@@ -367,7 +368,7 @@ func (mg *AuthenticatorWebauthnStage) ResolveReferences(ctx context.Context, c c
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.ForProvider.ConfigureFlowSelector,
@@ -384,7 +385,7 @@ func (mg *AuthenticatorWebauthnStage) ResolveReferences(ctx context.Context, c c
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.InitProvider.ConfigureFlowSelector,
@@ -428,7 +429,7 @@ func (mg *IdentificationStage) ResolveReferences(ctx context.Context, c client.R
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EnrollmentFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.EnrollmentFlowRef,
 		Selector:     mg.Spec.ForProvider.EnrollmentFlowSelector,
@@ -462,7 +463,7 @@ func (mg *IdentificationStage) ResolveReferences(ctx context.Context, c client.R
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.PasswordlessFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.PasswordlessFlowRef,
 		Selector:     mg.Spec.ForProvider.PasswordlessFlowSelector,
@@ -479,7 +480,7 @@ func (mg *IdentificationStage) ResolveReferences(ctx context.Context, c client.R
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.RecoveryFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.RecoveryFlowRef,
 		Selector:     mg.Spec.ForProvider.RecoveryFlowSelector,
@@ -530,7 +531,7 @@ func (mg *IdentificationStage) ResolveReferences(ctx context.Context, c client.R
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.EnrollmentFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.EnrollmentFlowRef,
 		Selector:     mg.Spec.InitProvider.EnrollmentFlowSelector,
@@ -564,7 +565,7 @@ func (mg *IdentificationStage) ResolveReferences(ctx context.Context, c client.R
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.PasswordlessFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.PasswordlessFlowRef,
 		Selector:     mg.Spec.InitProvider.PasswordlessFlowSelector,
@@ -581,7 +582,7 @@ func (mg *IdentificationStage) ResolveReferences(ctx context.Context, c client.R
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.RecoveryFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.RecoveryFlowRef,
 		Selector:     mg.Spec.InitProvider.RecoveryFlowSelector,
@@ -669,7 +670,7 @@ func (mg *PasswordStage) ResolveReferences(ctx context.Context, c client.Reader)
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.ForProvider.ConfigureFlowSelector,
@@ -686,7 +687,7 @@ func (mg *PasswordStage) ResolveReferences(ctx context.Context, c client.Reader)
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ConfigureFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.ConfigureFlowRef,
 		Selector:     mg.Spec.InitProvider.ConfigureFlowSelector,
@@ -713,7 +714,7 @@ func (mg *RedirectStage) ResolveReferences(ctx context.Context, c client.Reader)
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.TargetFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.TargetFlowRef,
 		Selector:     mg.Spec.ForProvider.TargetFlowSelector,
@@ -730,7 +731,7 @@ func (mg *RedirectStage) ResolveReferences(ctx context.Context, c client.Reader)
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.TargetFlow),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.TargetFlowRef,
 		Selector:     mg.Spec.InitProvider.TargetFlowSelector,

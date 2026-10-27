@@ -1,0 +1,13 @@
+apiVersion: provider.authentik.m.crossplane.io/v1alpha1
+kind: OAuth2Provider
+metadata:
+  name: xptest
+  namespace: xptest
+spec:
+  forProvider:
+    name: xptest
+    clientId: xptest
+    authorizationFlowRef:
+      name: xptest-authorization
+    invalidationFlowRef:
+      name: xptest-invalidation

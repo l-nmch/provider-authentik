@@ -129,7 +129,8 @@ the authority into the pod and setting `SSL_CERT_FILE` through a
   client secret and the like are `...SecretRef` fields pointing at a
   Kubernetes Secret key, and the values authentik generates (a token's key, a
   client secret it makes up) are written to the connection secret
-  (`writeConnectionSecretToRef`).
+  (`writeConnectionSecretToRef`). A `Token`'s key is only returned when
+  `retrieveKey: true` is set.
 - **The scope of the token is the scope of the provider.** A token that can
   only read one group can only manage that group.
 - **Blueprints and Crossplane overlap.** An object created by an authentik
@@ -171,6 +172,29 @@ does (see [`cluster/images/provider-authentik`](cluster/images/provider-authenti
 The plugin is built from source at the pinned tag, with `golang.org/x/net` and
 `golang.org/x/text` raised ahead of upstream, and `hack/upstream/*.patch`
 applied if there are any.
+
+### End-to-end tests
+
+The manifests in [`examples/e2e/`](examples/e2e/) cover references (a group's
+parent, a provider's flows, a token's user, an entitlement's application), a
+numeric identifier, a connection secret, and an in-place update. Everything is
+named `xptest`, in an `xptest` namespace. They were run against a throwaway
+authentik (the upstream image with a PostgreSQL, bootstrapped with
+`AUTHENTIK_BOOTSTRAP_TOKEN`) and a kind cluster, never against a real one:
+
+1. Start authentik and a kind cluster, apply `package/crds` with
+   `kubectl apply --server-side`, then a Secret holding
+   `{"url": "...", "token": "..."}` and a `ClusterProviderConfig`.
+2. Run the image on the host network with the kubeconfig mounted:
+   `docker run --network host -v kubeconfig:/kubeconfig:ro -e KUBECONFIG=/kubeconfig <image> --certs-dir ""`.
+3. `kubectl apply -f examples/e2e/`, wait for `Synced` and `Ready`, check the
+   objects through the authentik API, then delete the manifests and check
+   nothing named `xptest` is left.
+
+The Terraform ids of `Flow` and `Application` are their slug, while the
+arguments that point at them take their UUID; their references therefore use
+the `uuid` attribute instead of the external name (`config/references.go`).
+Running the manifests is what caught it.
 
 ## License
 

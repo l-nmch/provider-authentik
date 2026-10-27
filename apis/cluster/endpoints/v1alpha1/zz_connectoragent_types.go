@@ -22,6 +22,7 @@ type ConnectorAgentInitParameters struct {
 	AuthTerminateSessionOnExpiry *bool `json:"authTerminateSessionOnExpiry,omitempty" tf:"auth_terminate_session_on_expiry,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate authorizationFlow.
@@ -111,6 +112,7 @@ type ConnectorAgentParameters struct {
 	AuthTerminateSessionOnExpiry *bool `json:"authTerminateSessionOnExpiry,omitempty" tf:"auth_terminate_session_on_expiry,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 
