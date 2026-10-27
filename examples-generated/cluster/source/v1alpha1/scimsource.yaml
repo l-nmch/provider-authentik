@@ -1,0 +1,12 @@
+apiVersion: source.authentik.crossplane.io/v1alpha1
+kind: SCIMSource
+metadata:
+  annotations:
+    meta.upbound.io/example-id: source/v1alpha1/scimsource
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+spec:
+  forProvider:
+    name: test-source
+    slug: test-source

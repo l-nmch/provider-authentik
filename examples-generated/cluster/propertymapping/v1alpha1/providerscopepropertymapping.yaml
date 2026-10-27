@@ -1,0 +1,16 @@
+apiVersion: propertymapping.authentik.crossplane.io/v1alpha1
+kind: ProviderScopePropertyMapping
+metadata:
+  annotations:
+    meta.upbound.io/example-id: propertymapping/v1alpha1/providerscopepropertymapping
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+spec:
+  forProvider:
+    expression: |
+      return {
+        "policy": "readwrite",
+      }
+    name: minio
+    scopeName: minio

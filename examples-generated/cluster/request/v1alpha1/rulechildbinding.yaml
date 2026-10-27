@@ -1,0 +1,71 @@
+apiVersion: request.authentik.crossplane.io/v1alpha1
+kind: RuleChildBinding
+metadata:
+  annotations:
+    meta.upbound.io/example-id: request/v1alpha1/rulechildbinding
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    binding: ${authentik_request_rule_binding.example.id}
+    target: ${authentik_application.secondary.uuid}
+
+---
+
+apiVersion: core.authentik.crossplane.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    meta.upbound.io/example-id: request/v1alpha1/rulechildbinding
+  labels:
+    testing.upbound.io/example-name: primary
+  name: primary
+spec:
+  forProvider:
+    name: example app
+    slug: example-app
+
+---
+
+apiVersion: core.authentik.crossplane.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    meta.upbound.io/example-id: request/v1alpha1/rulechildbinding
+  labels:
+    testing.upbound.io/example-name: secondary
+  name: secondary
+spec:
+  forProvider:
+    name: example app addon
+    slug: example-app-addon
+
+---
+
+apiVersion: request.authentik.crossplane.io/v1alpha1
+kind: Rule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: request/v1alpha1/rulechildbinding
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    name: Example access request rule
+
+---
+
+apiVersion: request.authentik.crossplane.io/v1alpha1
+kind: RuleBinding
+metadata:
+  annotations:
+    meta.upbound.io/example-id: request/v1alpha1/rulechildbinding
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    rule: ${authentik_request_rule.example.id}
+    target: ${authentik_application.primary.uuid}

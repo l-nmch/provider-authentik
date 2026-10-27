@@ -1,0 +1,42 @@
+apiVersion: provider.authentik.crossplane.io/v1alpha1
+kind: OAuth2DCRProvider
+metadata:
+  annotations:
+    meta.upbound.io/example-id: provider/v1alpha1/oauth2dcrprovider
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    accessTokenValidity: minutes=5
+    allowedGrantTypes:
+    - authorization_code
+    - refresh_token
+    oauth2ProviderSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    refreshTokenValidity: days=30
+
+---
+
+apiVersion: provider.authentik.crossplane.io/v1alpha1
+kind: OAuth2Provider
+metadata:
+  annotations:
+    meta.upbound.io/example-id: provider/v1alpha1/oauth2dcrprovider
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    authorizationFlowSelector:
+      matchLabels:
+        testing.upbound.io/example-name: authentik_flow
+    clientId: dcr-example
+    invalidationFlowSelector:
+      matchLabels:
+        testing.upbound.io/example-name: authentik_flow
+    name: dcr-example
+    signingKeySelector:
+      matchLabels:
+        testing.upbound.io/example-name: authentik_certificate_key_pair

@@ -1,0 +1,11 @@
+apiVersion: stage.authentik.crossplane.io/v1alpha1
+kind: AuthenticatorWebauthnStage
+metadata:
+  annotations:
+    meta.upbound.io/example-id: stage/v1alpha1/authenticatorwebauthnstage
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+spec:
+  forProvider:
+    name: webauthn-setup

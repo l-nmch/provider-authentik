@@ -1,0 +1,46 @@
+apiVersion: request.authentik.m.crossplane.io/v1alpha1
+kind: RuleBinding
+metadata:
+  annotations:
+    meta.upbound.io/example-id: request/v1alpha1/rulebinding
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+  namespace: crossplane-system
+spec:
+  forProvider:
+    expiryGrantedMax: hours=720
+    expiryPending: hours=8
+    rule: ${authentik_request_rule.example.id}
+    target: ${authentik_application.example.uuid}
+
+---
+
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    meta.upbound.io/example-id: request/v1alpha1/rulebinding
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: example app
+    slug: example-app
+
+---
+
+apiVersion: request.authentik.m.crossplane.io/v1alpha1
+kind: Rule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: request/v1alpha1/rulebinding
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: Example access request rule

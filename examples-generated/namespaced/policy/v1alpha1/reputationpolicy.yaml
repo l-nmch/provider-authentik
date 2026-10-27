@@ -1,0 +1,12 @@
+apiVersion: policy.authentik.m.crossplane.io/v1alpha1
+kind: ReputationPolicy
+metadata:
+  annotations:
+    meta.upbound.io/example-id: policy/v1alpha1/reputationpolicy
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: reputation

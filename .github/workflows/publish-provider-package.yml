@@ -1,0 +1,32 @@
+name: Publish Provider Package
+
+on:
+  # A release (the tag release-please creates when its pull request is merged) is published by
+  # itself; the manual run is for a test version.
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version string to use while publishing the package (e.g. v1.0.0-alpha.1)"
+        default: ''
+        required: false
+
+jobs:
+  publish-provider-package:
+    permissions:
+      contents: read
+      packages: write
+    uses: crossplane-contrib/provider-workflows/.github/workflows/publish-provider.yml@451c4dc6ad3691b0a702a997a0ac24e8bbc8bbaa # main
+    with:
+      repository: provider-authentik
+      registry_org: l-nmch
+      mirror: true
+      version: ${{ github.event_name == 'push' && github.ref_name || github.event.inputs.version }}
+      go-version: '1.26.10'
+      cleanup-disk: true
+    secrets:
+      GHCR_PAT: ${{ secrets.GITHUB_TOKEN }}
+      XPKG_MIRROR_TOKEN: ${{ secrets.XPKG_MIRROR_TOKEN }}
+      XPKG_MIRROR_ACCESS_ID: ${{ secrets.XPKG_MIRROR_ACCESS_ID }}

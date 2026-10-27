@@ -1,0 +1,36 @@
+apiVersion: provider.authentik.m.crossplane.io/v1alpha1
+kind: RadiusProvider
+metadata:
+  annotations:
+    meta.upbound.io/example-id: provider/v1alpha1/radiusprovider
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    authorizationFlowSelector:
+      matchLabels:
+        testing.upbound.io/example-name: authentik_flow
+    clientNetworks: 10.10.0.0/24
+    name: radius-app
+    sharedSecretSecretRef:
+      key: example-key
+      name: example-secret
+
+---
+
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    meta.upbound.io/example-id: provider/v1alpha1/radiusprovider
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: radius-app
+    protocolProvider: ${authentik_provider_radius.name.id}
+    slug: radius-app

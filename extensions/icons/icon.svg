@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <title>provider-authentik</title>
+  <rect width="256" height="256" rx="48" fill="#18181b"/>
+  <!-- A keyhole in a shield: identity and access, as a resource. -->
+  <path d="M128 36 L204 64 V124 C204 172 172 208 128 224 C84 208 52 172 52 124 V64 Z" fill="#fd4b2d"/>
+  <circle cx="128" cy="116" r="24" fill="#18181b"/>
+  <path d="M116 132 H140 L148 178 H108 Z" fill="#18181b"/>
+</svg>

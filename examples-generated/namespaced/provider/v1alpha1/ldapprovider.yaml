@@ -1,0 +1,33 @@
+apiVersion: provider.authentik.m.crossplane.io/v1alpha1
+kind: LDAPProvider
+metadata:
+  annotations:
+    meta.upbound.io/example-id: provider/v1alpha1/ldapprovider
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    baseDn: dc=ldap,dc=goauthentik,dc=io
+    bindFlowSelector:
+      matchLabels:
+        testing.upbound.io/example-name: authentik_flow
+    name: ldap-app
+
+---
+
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    meta.upbound.io/example-id: provider/v1alpha1/ldapprovider
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: ldap-app
+    protocolProvider: ${authentik_provider_ldap.name.id}
+    slug: ldap-app

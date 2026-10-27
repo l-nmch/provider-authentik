@@ -1,0 +1,19 @@
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: Blueprint
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/blueprint
+  labels:
+    testing.upbound.io/example-name: instance
+  name: instance
+  namespace: crossplane-system
+spec:
+  forProvider:
+    context: |-
+      ${jsonencode(
+          {
+            foo = "bar"
+          }
+        )}
+    name: blueprint-instance
+    path: default/flow-default-authentication-flow.yaml

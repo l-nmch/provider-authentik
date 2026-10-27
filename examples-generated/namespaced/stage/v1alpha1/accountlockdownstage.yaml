@@ -1,0 +1,16 @@
+apiVersion: stage.authentik.m.crossplane.io/v1alpha1
+kind: AccountLockdownStage
+metadata:
+  annotations:
+    meta.upbound.io/example-id: stage/v1alpha1/accountlockdownstage
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    deactivateUser: true
+    deleteSessions: true
+    name: account-lockdown
+    revokeTokens: true
+    setUnusablePassword: true

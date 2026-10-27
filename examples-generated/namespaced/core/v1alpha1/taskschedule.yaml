@@ -1,0 +1,33 @@
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: TaskSchedule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/taskschedule
+  labels:
+    testing.upbound.io/example-name: default
+  name: default
+  namespace: crossplane-system
+spec:
+  forProvider:
+    appModel: authentik_providers_scim.scimprovider
+    crontab: 6 */4 * * 2
+    modelId: ${authentik_provider_scim.name.id}
+
+---
+
+apiVersion: provider.authentik.m.crossplane.io/v1alpha1
+kind: SCIMProvider
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/taskschedule
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: name
+    tokenSecretRef:
+      key: example-key
+      name: example-secret
+    url: http://localhost

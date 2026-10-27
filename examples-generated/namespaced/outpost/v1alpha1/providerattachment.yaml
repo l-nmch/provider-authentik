@@ -1,0 +1,50 @@
+apiVersion: outpost.authentik.m.crossplane.io/v1alpha1
+kind: ProviderAttachment
+metadata:
+  annotations:
+    meta.upbound.io/example-id: outpost/v1alpha1/providerattachment
+  labels:
+    testing.upbound.io/example-name: attachment
+  name: attachment
+  namespace: crossplane-system
+spec:
+  forProvider:
+    outpostSelector:
+      matchLabels:
+        testing.upbound.io/example-name: outpost
+    protocolProvider: ${authentik_provider_proxy.proxy.id}
+
+---
+
+apiVersion: outpost.authentik.m.crossplane.io/v1alpha1
+kind: Outpost
+metadata:
+  annotations:
+    meta.upbound.io/example-id: outpost/v1alpha1/providerattachment
+  labels:
+    testing.upbound.io/example-name: outpost
+  name: outpost
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: test-outpost
+
+---
+
+apiVersion: provider.authentik.m.crossplane.io/v1alpha1
+kind: ProxyProvider
+metadata:
+  annotations:
+    meta.upbound.io/example-id: outpost/v1alpha1/providerattachment
+  labels:
+    testing.upbound.io/example-name: proxy
+  name: proxy
+  namespace: crossplane-system
+spec:
+  forProvider:
+    authorizationFlowSelector:
+      matchLabels:
+        testing.upbound.io/example-name: authentik_flow
+    externalHost: http://foo.bar.baz
+    internalHost: http://internal.local
+    name: proxy

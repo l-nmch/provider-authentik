@@ -1,0 +1,16 @@
+apiVersion: core.authentik.crossplane.io/v1alpha1
+kind: ObjectAttribute
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/objectattribute
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    isRequired: false
+    isUnique: true
+    key: employee_id
+    label: Employee ID
+    objectType: authentik_core.user
+    type: text

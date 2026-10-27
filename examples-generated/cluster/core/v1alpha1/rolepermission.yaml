@@ -1,0 +1,31 @@
+apiVersion: core.authentik.crossplane.io/v1alpha1
+kind: RolePermission
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/rolepermission
+  labels:
+    testing.upbound.io/example-name: global-permission
+  name: global-permission
+spec:
+  forProvider:
+    permission: authentik_flows.inspect_flow
+    roleSelector:
+      matchLabels:
+        testing.upbound.io/example-name: my-role
+
+---
+
+apiVersion: flow.authentik.crossplane.io/v1alpha1
+kind: Flow
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/rolepermission
+  labels:
+    testing.upbound.io/example-name: flow
+  name: flow
+spec:
+  forProvider:
+    designation: authorization
+    name: test-flow
+    slug: test-flow
+    title: Test flow

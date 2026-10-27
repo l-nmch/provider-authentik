@@ -1,0 +1,20 @@
+apiVersion: provider.authentik.crossplane.io/v1alpha1
+kind: SCIMProvider
+metadata:
+  annotations:
+    meta.upbound.io/example-id: provider/v1alpha1/scimprovider
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+spec:
+  forProvider:
+    name: test-app
+    propertyMappingsGroup:
+    - ${data.authentik_property_mapping_scim.group.id}
+    propertyMappingsRefs:
+    - name: authentik_property_mapping_scim
+    tokenSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    url: http://localhost

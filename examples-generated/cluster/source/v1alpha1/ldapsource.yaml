@@ -1,0 +1,19 @@
+apiVersion: source.authentik.crossplane.io/v1alpha1
+kind: LDAPSource
+metadata:
+  annotations:
+    meta.upbound.io/example-id: source/v1alpha1/ldapsource
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+spec:
+  forProvider:
+    baseDn: dn=foo
+    bindCn: foo
+    bindPasswordSecretRef:
+      key: example-key
+      name: example-secret
+      namespace: upbound-system
+    name: ldap-test
+    serverUri: ldaps://1.2.3.4
+    slug: ldap-test

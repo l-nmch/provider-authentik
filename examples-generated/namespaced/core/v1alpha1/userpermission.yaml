@@ -1,0 +1,49 @@
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: UserPermission
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/userpermission
+  labels:
+    testing.upbound.io/example-name: global-permission
+  name: global-permission
+  namespace: crossplane-system
+spec:
+  forProvider:
+    permission: authentik_flows.inspect_flow
+    userSelector:
+      matchLabels:
+        testing.upbound.io/example-name: name
+
+---
+
+apiVersion: flow.authentik.m.crossplane.io/v1alpha1
+kind: Flow
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/userpermission
+  labels:
+    testing.upbound.io/example-name: flow
+  name: flow
+  namespace: crossplane-system
+spec:
+  forProvider:
+    designation: authorization
+    name: test-flow
+    slug: test-flow
+    title: Test flow
+
+---
+
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: User
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/userpermission
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: User
+    username: user

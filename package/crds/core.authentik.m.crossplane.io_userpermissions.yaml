@@ -1,0 +1,811 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.20.1
+  name: userpermissions.core.authentik.m.crossplane.io
+spec:
+  group: core.authentik.m.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - authentik
+    kind: UserPermission
+    listKind: UserPermissionList
+    plural: userpermissions
+    singular: userpermission
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: UserPermission is the Schema for the UserPermissions API. ~>
+          This resource is deprecated. Migrate to authentik_rbac_permission_role.
+        properties:
+          apiVersion:
+            description: |-
+              APIVersion defines the versioned schema of this representation of an object.
+              Servers should convert recognized schemas to the latest internal value, and
+              may reject unrecognized values.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+            type: string
+          kind:
+            description: |-
+              Kind is a string value representing the REST resource this object represents.
+              Servers may infer this from the endpoint the client submits requests to.
+              Cannot be updated.
+              In CamelCase.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: UserPermissionSpec defines the desired state of UserPermission
+            properties:
+              forProvider:
+                properties:
+                  model:
+                    description: |-
+                      (String) Allowed values:
+                      Allowed values:
+                      - `authentik_tenants.domain`
+                      - `authentik_core.group`
+                      - `authentik_core.user`
+                      - `authentik_core.application`
+                      - `authentik_core.applicationentitlement`
+                      - `authentik_core.token`
+                      - `authentik_core.objectattribute`
+                      - `authentik_core.actor`
+                      - `authentik_crypto.certificatekeypair`
+                      - `authentik_endpoints.deviceuserbinding`
+                      - `authentik_endpoints.deviceaccessgroup`
+                      - `authentik_endpoints.endpointstage`
+                      - `authentik_endpoints_connectors_agent.agentconnector`
+                      - `authentik_endpoints_connectors_agent.agentdeviceuserbinding`
+                      - `authentik_endpoints_connectors_agent.enrollmenttoken`
+                      - `authentik_enterprise.license`
+                      - `authentik_events.event`
+                      - `authentik_events.notificationtransport`
+                      - `authentik_events.notification`
+                      - `authentik_events.notificationrule`
+                      - `authentik_events.notificationwebhookmapping`
+                      - `authentik_flows.flow`
+                      - `authentik_flows.flowstagebinding`
+                      - `authentik_outposts.dockerserviceconnection`
+                      - `authentik_outposts.kubernetesserviceconnection`
+                      - `authentik_outposts.outpost`
+                      - `authentik_policies_dummy.dummypolicy`
+                      - `authentik_policies_event_matcher.eventmatcherpolicy`
+                      - `authentik_policies_expiry.passwordexpirypolicy`
+                      - `authentik_policies_expression.expressionpolicy`
+                      - `authentik_policies_geoip.geoippolicy`
+                      - `authentik_policies_password.passwordpolicy`
+                      - `authentik_policies_reputation.reputationpolicy`
+                      - `authentik_policies.policybinding`
+                      - `authentik_providers_ldap.ldapprovider`
+                      - `authentik_providers_oauth2.scopemapping`
+                      - `authentik_providers_oauth2.oauth2provider`
+                      - `authentik_providers_oauth2.oauth2dynamicclientregistration`
+                      - `authentik_providers_proxy.proxyprovider`
+                      - `authentik_providers_rac.racprovider`
+                      - `authentik_providers_rac.endpoint`
+                      - `authentik_providers_rac.racpropertymapping`
+                      - `authentik_providers_radius.radiusprovider`
+                      - `authentik_providers_radius.radiusproviderpropertymapping`
+                      - `authentik_providers_saml.samlprovider`
+                      - `authentik_providers_saml.samlpropertymapping`
+                      - `authentik_providers_scim.scimprovider`
+                      - `authentik_providers_scim.scimmapping`
+                      - `authentik_rbac.role`
+                      - `authentik_rbac.initialpermissions`
+                      - `authentik_sources_kerberos.kerberossource`
+                      - `authentik_sources_kerberos.kerberossourcepropertymapping`
+                      - `authentik_sources_kerberos.userkerberossourceconnection`
+                      - `authentik_sources_kerberos.groupkerberossourceconnection`
+                      - `authentik_sources_ldap.ldapsource`
+                      - `authentik_sources_ldap.ldapsourcepropertymapping`
+                      - `authentik_sources_ldap.userldapsourceconnection`
+                      - `authentik_sources_ldap.groupldapsourceconnection`
+                      - `authentik_sources_oauth.oauthsource`
+                      - `authentik_sources_oauth.oauthsourcepropertymapping`
+                      - `authentik_sources_oauth.useroauthsourceconnection`
+                      - `authentik_sources_oauth.groupoauthsourceconnection`
+                      - `authentik_sources_plex.plexsource`
+                      - `authentik_sources_plex.plexsourcepropertymapping`
+                      - `authentik_sources_plex.userplexsourceconnection`
+                      - `authentik_sources_plex.groupplexsourceconnection`
+                      - `authentik_sources_saml.samlsource`
+                      - `authentik_sources_saml.samlsourcepropertymapping`
+                      - `authentik_sources_saml.usersamlsourceconnection`
+                      - `authentik_sources_saml.groupsamlsourceconnection`
+                      - `authentik_sources_scim.scimsource`
+                      - `authentik_sources_scim.scimsourcepropertymapping`
+                      - `authentik_sources_telegram.telegramsource`
+                      - `authentik_sources_telegram.telegramsourcepropertymapping`
+                      - `authentik_sources_telegram.usertelegramsourceconnection`
+                      - `authentik_sources_telegram.grouptelegramsourceconnection`
+                      - `authentik_stages_authenticator_duo.authenticatorduostage`
+                      - `authentik_stages_authenticator_duo.duodevice`
+                      - `authentik_stages_authenticator_email.authenticatoremailstage`
+                      - `authentik_stages_authenticator_email.emaildevice`
+                      - `authentik_stages_authenticator_sms.authenticatorsmsstage`
+                      - `authentik_stages_authenticator_sms.smsdevice`
+                      - `authentik_stages_authenticator_static.authenticatorstaticstage`
+                      - `authentik_stages_authenticator_static.staticdevice`
+                      - `authentik_stages_authenticator_totp.authenticatortotpstage`
+                      - `authentik_stages_authenticator_totp.totpdevice`
+                      - `authentik_stages_authenticator_validate.authenticatorvalidatestage`
+                      - `authentik_stages_authenticator_webauthn.authenticatorwebauthnstage`
+                      - `authentik_stages_authenticator_webauthn.webauthndevice`
+                      - `authentik_stages_captcha.captchastage`
+                      - `authentik_stages_consent.consentstage`
+                      - `authentik_stages_deny.denystage`
+                      - `authentik_stages_dummy.dummystage`
+                      - `authentik_stages_email.emailstage`
+                      - `authentik_stages_identification.identificationstage`
+                      - `authentik_stages_invitation.invitationstage`
+                      - `authentik_stages_invitation.invitation`
+                      - `authentik_stages_password.passwordstage`
+                      - `authentik_stages_prompt.prompt`
+                      - `authentik_stages_prompt.promptstage`
+                      - `authentik_stages_redirect.redirectstage`
+                      - `authentik_stages_user_delete.userdeletestage`
+                      - `authentik_stages_user_login.userloginstage`
+                      - `authentik_stages_user_logout.userlogoutstage`
+                      - `authentik_stages_user_write.userwritestage`
+                      - `authentik_tasks_schedules.schedule`
+                      - `authentik_brands.brand`
+                      - `authentik_blueprints.blueprintinstance`
+                      - `authentik_agents.agent`
+                      - `authentik_endpoints_connectors_fleet.fleetconnector`
+                      - `authentik_endpoints_connectors_google_chrome.googlechromeconnector`
+                      - `authentik_lifecycle.lifecyclerule`
+                      - `authentik_lifecycle.lifecycleiteration`
+                      - `authentik_lifecycle.review`
+                      - `authentik_lifecycle.useroffboarding`
+                      - `authentik_policies_unique_password.uniquepasswordpolicy`
+                      - `authentik_providers_google_workspace.googleworkspaceprovider`
+                      - `authentik_providers_google_workspace.googleworkspaceprovidermapping`
+                      - `authentik_providers_microsoft_entra.microsoftentraprovider`
+                      - `authentik_providers_microsoft_entra.microsoftentraprovidermapping`
+                      - `authentik_providers_ssf.ssfprovider`
+                      - `authentik_providers_ws_federation.wsfederationprovider`
+                      - `authentik_reports.dataexport`
+                      - `authentik_requests.requestrulechildbinding`
+                      - `authentik_requests.requestrulebinding`
+                      - `authentik_requests.requestrule`
+                      - `authentik_requests.grantrequest`
+                      - `authentik_stages_account_lockdown.accountlockdownstage`
+                      - `authentik_stages_authenticator_endpoint_gdtc.authenticatorendpointgdtcstage`
+                      - `authentik_stages_mtls.mutualtlsstage`
+                      - `authentik_stages_source.sourcestage`
+                    type: string
+                  objectId:
+                    description: (String)
+                    type: string
+                  permission:
+                    description: (String)
+                    type: string
+                  user:
+                    description: (Number)
+                    type: number
+                  userRef:
+                    description: Reference to a User in core to populate user.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                      namespace:
+                        description: Namespace of the referenced object
+                        type: string
+                      policy:
+                        description: Policies for referencing.
+                        properties:
+                          resolution:
+                            default: Required
+                            description: |-
+                              Resolution specifies whether resolution of this reference is required.
+                              The default is 'Required', which means the reconcile will fail if the
+                              reference cannot be resolved. 'Optional' means this reference will be
+                              a no-op if it cannot be resolved.
+                            enum:
+                            - Required
+                            - Optional
+                            type: string
+                          resolve:
+                            description: |-
+                              Resolve specifies when this reference should be resolved. The default
+                              is 'IfNotPresent', which will attempt to resolve the reference only when
+                              the corresponding field is not present. Use 'Always' to resolve the
+                              reference on every reconcile.
+                            enum:
+                            - Always
+                            - IfNotPresent
+                            type: string
+                        type: object
+                    required:
+                    - name
+                    type: object
+                  userSelector:
+                    description: Selector for a User in core to populate user.
+                    properties:
+                      matchControllerRef:
+                        description: |-
+                          MatchControllerRef ensures an object with the same controller reference
+                          as the selecting object is selected.
+                        type: boolean
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: MatchLabels ensures an object with matching labels
+                          is selected.
+                        type: object
+                      namespace:
+                        description: Namespace for the selector
+                        type: string
+                      policy:
+                        description: Policies for selection.
+                        properties:
+                          resolution:
+                            default: Required
+                            description: |-
+                              Resolution specifies whether resolution of this reference is required.
+                              The default is 'Required', which means the reconcile will fail if the
+                              reference cannot be resolved. 'Optional' means this reference will be
+                              a no-op if it cannot be resolved.
+                            enum:
+                            - Required
+                            - Optional
+                            type: string
+                          resolve:
+                            description: |-
+                              Resolve specifies when this reference should be resolved. The default
+                              is 'IfNotPresent', which will attempt to resolve the reference only when
+                              the corresponding field is not present. Use 'Always' to resolve the
+                              reference on every reconcile.
+                            enum:
+                            - Always
+                            - IfNotPresent
+                            type: string
+                        type: object
+                    type: object
+                type: object
+              initProvider:
+                description: |-
+                  THIS IS A BETA FIELD. It will be honored
+                  unless the Management Policies feature flag is disabled.
+                  InitProvider holds the same fields as ForProvider, with the exception
+                  of Identifier and other resource reference fields. The fields that are
+                  in InitProvider are merged into ForProvider when the resource is created.
+                  The same fields are also added to the terraform ignore_changes hook, to
+                  avoid updating them after creation. This is useful for fields that are
+                  required on creation, but we do not desire to update them after creation,
+                  for example because of an external controller is managing them, like an
+                  autoscaler.
+                properties:
+                  model:
+                    description: |-
+                      (String) Allowed values:
+                      Allowed values:
+                      - `authentik_tenants.domain`
+                      - `authentik_core.group`
+                      - `authentik_core.user`
+                      - `authentik_core.application`
+                      - `authentik_core.applicationentitlement`
+                      - `authentik_core.token`
+                      - `authentik_core.objectattribute`
+                      - `authentik_core.actor`
+                      - `authentik_crypto.certificatekeypair`
+                      - `authentik_endpoints.deviceuserbinding`
+                      - `authentik_endpoints.deviceaccessgroup`
+                      - `authentik_endpoints.endpointstage`
+                      - `authentik_endpoints_connectors_agent.agentconnector`
+                      - `authentik_endpoints_connectors_agent.agentdeviceuserbinding`
+                      - `authentik_endpoints_connectors_agent.enrollmenttoken`
+                      - `authentik_enterprise.license`
+                      - `authentik_events.event`
+                      - `authentik_events.notificationtransport`
+                      - `authentik_events.notification`
+                      - `authentik_events.notificationrule`
+                      - `authentik_events.notificationwebhookmapping`
+                      - `authentik_flows.flow`
+                      - `authentik_flows.flowstagebinding`
+                      - `authentik_outposts.dockerserviceconnection`
+                      - `authentik_outposts.kubernetesserviceconnection`
+                      - `authentik_outposts.outpost`
+                      - `authentik_policies_dummy.dummypolicy`
+                      - `authentik_policies_event_matcher.eventmatcherpolicy`
+                      - `authentik_policies_expiry.passwordexpirypolicy`
+                      - `authentik_policies_expression.expressionpolicy`
+                      - `authentik_policies_geoip.geoippolicy`
+                      - `authentik_policies_password.passwordpolicy`
+                      - `authentik_policies_reputation.reputationpolicy`
+                      - `authentik_policies.policybinding`
+                      - `authentik_providers_ldap.ldapprovider`
+                      - `authentik_providers_oauth2.scopemapping`
+                      - `authentik_providers_oauth2.oauth2provider`
+                      - `authentik_providers_oauth2.oauth2dynamicclientregistration`
+                      - `authentik_providers_proxy.proxyprovider`
+                      - `authentik_providers_rac.racprovider`
+                      - `authentik_providers_rac.endpoint`
+                      - `authentik_providers_rac.racpropertymapping`
+                      - `authentik_providers_radius.radiusprovider`
+                      - `authentik_providers_radius.radiusproviderpropertymapping`
+                      - `authentik_providers_saml.samlprovider`
+                      - `authentik_providers_saml.samlpropertymapping`
+                      - `authentik_providers_scim.scimprovider`
+                      - `authentik_providers_scim.scimmapping`
+                      - `authentik_rbac.role`
+                      - `authentik_rbac.initialpermissions`
+                      - `authentik_sources_kerberos.kerberossource`
+                      - `authentik_sources_kerberos.kerberossourcepropertymapping`
+                      - `authentik_sources_kerberos.userkerberossourceconnection`
+                      - `authentik_sources_kerberos.groupkerberossourceconnection`
+                      - `authentik_sources_ldap.ldapsource`
+                      - `authentik_sources_ldap.ldapsourcepropertymapping`
+                      - `authentik_sources_ldap.userldapsourceconnection`
+                      - `authentik_sources_ldap.groupldapsourceconnection`
+                      - `authentik_sources_oauth.oauthsource`
+                      - `authentik_sources_oauth.oauthsourcepropertymapping`
+                      - `authentik_sources_oauth.useroauthsourceconnection`
+                      - `authentik_sources_oauth.groupoauthsourceconnection`
+                      - `authentik_sources_plex.plexsource`
+                      - `authentik_sources_plex.plexsourcepropertymapping`
+                      - `authentik_sources_plex.userplexsourceconnection`
+                      - `authentik_sources_plex.groupplexsourceconnection`
+                      - `authentik_sources_saml.samlsource`
+                      - `authentik_sources_saml.samlsourcepropertymapping`
+                      - `authentik_sources_saml.usersamlsourceconnection`
+                      - `authentik_sources_saml.groupsamlsourceconnection`
+                      - `authentik_sources_scim.scimsource`
+                      - `authentik_sources_scim.scimsourcepropertymapping`
+                      - `authentik_sources_telegram.telegramsource`
+                      - `authentik_sources_telegram.telegramsourcepropertymapping`
+                      - `authentik_sources_telegram.usertelegramsourceconnection`
+                      - `authentik_sources_telegram.grouptelegramsourceconnection`
+                      - `authentik_stages_authenticator_duo.authenticatorduostage`
+                      - `authentik_stages_authenticator_duo.duodevice`
+                      - `authentik_stages_authenticator_email.authenticatoremailstage`
+                      - `authentik_stages_authenticator_email.emaildevice`
+                      - `authentik_stages_authenticator_sms.authenticatorsmsstage`
+                      - `authentik_stages_authenticator_sms.smsdevice`
+                      - `authentik_stages_authenticator_static.authenticatorstaticstage`
+                      - `authentik_stages_authenticator_static.staticdevice`
+                      - `authentik_stages_authenticator_totp.authenticatortotpstage`
+                      - `authentik_stages_authenticator_totp.totpdevice`
+                      - `authentik_stages_authenticator_validate.authenticatorvalidatestage`
+                      - `authentik_stages_authenticator_webauthn.authenticatorwebauthnstage`
+                      - `authentik_stages_authenticator_webauthn.webauthndevice`
+                      - `authentik_stages_captcha.captchastage`
+                      - `authentik_stages_consent.consentstage`
+                      - `authentik_stages_deny.denystage`
+                      - `authentik_stages_dummy.dummystage`
+                      - `authentik_stages_email.emailstage`
+                      - `authentik_stages_identification.identificationstage`
+                      - `authentik_stages_invitation.invitationstage`
+                      - `authentik_stages_invitation.invitation`
+                      - `authentik_stages_password.passwordstage`
+                      - `authentik_stages_prompt.prompt`
+                      - `authentik_stages_prompt.promptstage`
+                      - `authentik_stages_redirect.redirectstage`
+                      - `authentik_stages_user_delete.userdeletestage`
+                      - `authentik_stages_user_login.userloginstage`
+                      - `authentik_stages_user_logout.userlogoutstage`
+                      - `authentik_stages_user_write.userwritestage`
+                      - `authentik_tasks_schedules.schedule`
+                      - `authentik_brands.brand`
+                      - `authentik_blueprints.blueprintinstance`
+                      - `authentik_agents.agent`
+                      - `authentik_endpoints_connectors_fleet.fleetconnector`
+                      - `authentik_endpoints_connectors_google_chrome.googlechromeconnector`
+                      - `authentik_lifecycle.lifecyclerule`
+                      - `authentik_lifecycle.lifecycleiteration`
+                      - `authentik_lifecycle.review`
+                      - `authentik_lifecycle.useroffboarding`
+                      - `authentik_policies_unique_password.uniquepasswordpolicy`
+                      - `authentik_providers_google_workspace.googleworkspaceprovider`
+                      - `authentik_providers_google_workspace.googleworkspaceprovidermapping`
+                      - `authentik_providers_microsoft_entra.microsoftentraprovider`
+                      - `authentik_providers_microsoft_entra.microsoftentraprovidermapping`
+                      - `authentik_providers_ssf.ssfprovider`
+                      - `authentik_providers_ws_federation.wsfederationprovider`
+                      - `authentik_reports.dataexport`
+                      - `authentik_requests.requestrulechildbinding`
+                      - `authentik_requests.requestrulebinding`
+                      - `authentik_requests.requestrule`
+                      - `authentik_requests.grantrequest`
+                      - `authentik_stages_account_lockdown.accountlockdownstage`
+                      - `authentik_stages_authenticator_endpoint_gdtc.authenticatorendpointgdtcstage`
+                      - `authentik_stages_mtls.mutualtlsstage`
+                      - `authentik_stages_source.sourcestage`
+                    type: string
+                  objectId:
+                    description: (String)
+                    type: string
+                  permission:
+                    description: (String)
+                    type: string
+                  user:
+                    description: (Number)
+                    type: number
+                  userRef:
+                    description: Reference to a User in core to populate user.
+                    properties:
+                      name:
+                        description: Name of the referenced object.
+                        type: string
+                      namespace:
+                        description: Namespace of the referenced object
+                        type: string
+                      policy:
+                        description: Policies for referencing.
+                        properties:
+                          resolution:
+                            default: Required
+                            description: |-
+                              Resolution specifies whether resolution of this reference is required.
+                              The default is 'Required', which means the reconcile will fail if the
+                              reference cannot be resolved. 'Optional' means this reference will be
+                              a no-op if it cannot be resolved.
+                            enum:
+                            - Required
+                            - Optional
+                            type: string
+                          resolve:
+                            description: |-
+                              Resolve specifies when this reference should be resolved. The default
+                              is 'IfNotPresent', which will attempt to resolve the reference only when
+                              the corresponding field is not present. Use 'Always' to resolve the
+                              reference on every reconcile.
+                            enum:
+                            - Always
+                            - IfNotPresent
+                            type: string
+                        type: object
+                    required:
+                    - name
+                    type: object
+                  userSelector:
+                    description: Selector for a User in core to populate user.
+                    properties:
+                      matchControllerRef:
+                        description: |-
+                          MatchControllerRef ensures an object with the same controller reference
+                          as the selecting object is selected.
+                        type: boolean
+                      matchLabels:
+                        additionalProperties:
+                          type: string
+                        description: MatchLabels ensures an object with matching labels
+                          is selected.
+                        type: object
+                      namespace:
+                        description: Namespace for the selector
+                        type: string
+                      policy:
+                        description: Policies for selection.
+                        properties:
+                          resolution:
+                            default: Required
+                            description: |-
+                              Resolution specifies whether resolution of this reference is required.
+                              The default is 'Required', which means the reconcile will fail if the
+                              reference cannot be resolved. 'Optional' means this reference will be
+                              a no-op if it cannot be resolved.
+                            enum:
+                            - Required
+                            - Optional
+                            type: string
+                          resolve:
+                            description: |-
+                              Resolve specifies when this reference should be resolved. The default
+                              is 'IfNotPresent', which will attempt to resolve the reference only when
+                              the corresponding field is not present. Use 'Always' to resolve the
+                              reference on every reconcile.
+                            enum:
+                            - Always
+                            - IfNotPresent
+                            type: string
+                        type: object
+                    type: object
+                type: object
+              managementPolicies:
+                default:
+                - '*'
+                description: |-
+                  THIS IS A BETA FIELD. It is on by default but can be opted out
+                  through a Crossplane feature flag.
+                  ManagementPolicies specify the array of actions Crossplane is allowed to
+                  take on the managed and external resources.
+                  See the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223
+                  and this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md
+                items:
+                  description: |-
+                    A ManagementAction represents an action that the Crossplane controllers
+                    can take on an external resource.
+                  enum:
+                  - Observe
+                  - Create
+                  - Update
+                  - Delete
+                  - LateInitialize
+                  - '*'
+                  type: string
+                type: array
+              providerConfigRef:
+                default:
+                  kind: ClusterProviderConfig
+                  name: default
+                description: |-
+                  ProviderConfigReference specifies how the provider that will be used to
+                  create, observe, update, and delete this managed resource should be
+                  configured.
+                properties:
+                  kind:
+                    description: Kind of the referenced object.
+                    type: string
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - kind
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: |-
+                  WriteConnectionSecretToReference specifies the namespace and name of a
+                  Secret to which any connection details for this managed resource should
+                  be written. Connection details frequently include the endpoint, username,
+                  and password required to connect to the managed resource.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                required:
+                - name
+                type: object
+            required:
+            - forProvider
+            type: object
+            x-kubernetes-validations:
+            - message: spec.forProvider.permission is a required parameter
+              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
+                || ''Update'' in self.managementPolicies) || has(self.forProvider.permission)
+                || (has(self.initProvider) && has(self.initProvider.permission))'
+          status:
+            description: UserPermissionStatus defines the observed state of UserPermission.
+            properties:
+              atProvider:
+                properties:
+                  id:
+                    description: (String) The ID of this resource.
+                    type: string
+                  model:
+                    description: |-
+                      (String) Allowed values:
+                      Allowed values:
+                      - `authentik_tenants.domain`
+                      - `authentik_core.group`
+                      - `authentik_core.user`
+                      - `authentik_core.application`
+                      - `authentik_core.applicationentitlement`
+                      - `authentik_core.token`
+                      - `authentik_core.objectattribute`
+                      - `authentik_core.actor`
+                      - `authentik_crypto.certificatekeypair`
+                      - `authentik_endpoints.deviceuserbinding`
+                      - `authentik_endpoints.deviceaccessgroup`
+                      - `authentik_endpoints.endpointstage`
+                      - `authentik_endpoints_connectors_agent.agentconnector`
+                      - `authentik_endpoints_connectors_agent.agentdeviceuserbinding`
+                      - `authentik_endpoints_connectors_agent.enrollmenttoken`
+                      - `authentik_enterprise.license`
+                      - `authentik_events.event`
+                      - `authentik_events.notificationtransport`
+                      - `authentik_events.notification`
+                      - `authentik_events.notificationrule`
+                      - `authentik_events.notificationwebhookmapping`
+                      - `authentik_flows.flow`
+                      - `authentik_flows.flowstagebinding`
+                      - `authentik_outposts.dockerserviceconnection`
+                      - `authentik_outposts.kubernetesserviceconnection`
+                      - `authentik_outposts.outpost`
+                      - `authentik_policies_dummy.dummypolicy`
+                      - `authentik_policies_event_matcher.eventmatcherpolicy`
+                      - `authentik_policies_expiry.passwordexpirypolicy`
+                      - `authentik_policies_expression.expressionpolicy`
+                      - `authentik_policies_geoip.geoippolicy`
+                      - `authentik_policies_password.passwordpolicy`
+                      - `authentik_policies_reputation.reputationpolicy`
+                      - `authentik_policies.policybinding`
+                      - `authentik_providers_ldap.ldapprovider`
+                      - `authentik_providers_oauth2.scopemapping`
+                      - `authentik_providers_oauth2.oauth2provider`
+                      - `authentik_providers_oauth2.oauth2dynamicclientregistration`
+                      - `authentik_providers_proxy.proxyprovider`
+                      - `authentik_providers_rac.racprovider`
+                      - `authentik_providers_rac.endpoint`
+                      - `authentik_providers_rac.racpropertymapping`
+                      - `authentik_providers_radius.radiusprovider`
+                      - `authentik_providers_radius.radiusproviderpropertymapping`
+                      - `authentik_providers_saml.samlprovider`
+                      - `authentik_providers_saml.samlpropertymapping`
+                      - `authentik_providers_scim.scimprovider`
+                      - `authentik_providers_scim.scimmapping`
+                      - `authentik_rbac.role`
+                      - `authentik_rbac.initialpermissions`
+                      - `authentik_sources_kerberos.kerberossource`
+                      - `authentik_sources_kerberos.kerberossourcepropertymapping`
+                      - `authentik_sources_kerberos.userkerberossourceconnection`
+                      - `authentik_sources_kerberos.groupkerberossourceconnection`
+                      - `authentik_sources_ldap.ldapsource`
+                      - `authentik_sources_ldap.ldapsourcepropertymapping`
+                      - `authentik_sources_ldap.userldapsourceconnection`
+                      - `authentik_sources_ldap.groupldapsourceconnection`
+                      - `authentik_sources_oauth.oauthsource`
+                      - `authentik_sources_oauth.oauthsourcepropertymapping`
+                      - `authentik_sources_oauth.useroauthsourceconnection`
+                      - `authentik_sources_oauth.groupoauthsourceconnection`
+                      - `authentik_sources_plex.plexsource`
+                      - `authentik_sources_plex.plexsourcepropertymapping`
+                      - `authentik_sources_plex.userplexsourceconnection`
+                      - `authentik_sources_plex.groupplexsourceconnection`
+                      - `authentik_sources_saml.samlsource`
+                      - `authentik_sources_saml.samlsourcepropertymapping`
+                      - `authentik_sources_saml.usersamlsourceconnection`
+                      - `authentik_sources_saml.groupsamlsourceconnection`
+                      - `authentik_sources_scim.scimsource`
+                      - `authentik_sources_scim.scimsourcepropertymapping`
+                      - `authentik_sources_telegram.telegramsource`
+                      - `authentik_sources_telegram.telegramsourcepropertymapping`
+                      - `authentik_sources_telegram.usertelegramsourceconnection`
+                      - `authentik_sources_telegram.grouptelegramsourceconnection`
+                      - `authentik_stages_authenticator_duo.authenticatorduostage`
+                      - `authentik_stages_authenticator_duo.duodevice`
+                      - `authentik_stages_authenticator_email.authenticatoremailstage`
+                      - `authentik_stages_authenticator_email.emaildevice`
+                      - `authentik_stages_authenticator_sms.authenticatorsmsstage`
+                      - `authentik_stages_authenticator_sms.smsdevice`
+                      - `authentik_stages_authenticator_static.authenticatorstaticstage`
+                      - `authentik_stages_authenticator_static.staticdevice`
+                      - `authentik_stages_authenticator_totp.authenticatortotpstage`
+                      - `authentik_stages_authenticator_totp.totpdevice`
+                      - `authentik_stages_authenticator_validate.authenticatorvalidatestage`
+                      - `authentik_stages_authenticator_webauthn.authenticatorwebauthnstage`
+                      - `authentik_stages_authenticator_webauthn.webauthndevice`
+                      - `authentik_stages_captcha.captchastage`
+                      - `authentik_stages_consent.consentstage`
+                      - `authentik_stages_deny.denystage`
+                      - `authentik_stages_dummy.dummystage`
+                      - `authentik_stages_email.emailstage`
+                      - `authentik_stages_identification.identificationstage`
+                      - `authentik_stages_invitation.invitationstage`
+                      - `authentik_stages_invitation.invitation`
+                      - `authentik_stages_password.passwordstage`
+                      - `authentik_stages_prompt.prompt`
+                      - `authentik_stages_prompt.promptstage`
+                      - `authentik_stages_redirect.redirectstage`
+                      - `authentik_stages_user_delete.userdeletestage`
+                      - `authentik_stages_user_login.userloginstage`
+                      - `authentik_stages_user_logout.userlogoutstage`
+                      - `authentik_stages_user_write.userwritestage`
+                      - `authentik_tasks_schedules.schedule`
+                      - `authentik_brands.brand`
+                      - `authentik_blueprints.blueprintinstance`
+                      - `authentik_agents.agent`
+                      - `authentik_endpoints_connectors_fleet.fleetconnector`
+                      - `authentik_endpoints_connectors_google_chrome.googlechromeconnector`
+                      - `authentik_lifecycle.lifecyclerule`
+                      - `authentik_lifecycle.lifecycleiteration`
+                      - `authentik_lifecycle.review`
+                      - `authentik_lifecycle.useroffboarding`
+                      - `authentik_policies_unique_password.uniquepasswordpolicy`
+                      - `authentik_providers_google_workspace.googleworkspaceprovider`
+                      - `authentik_providers_google_workspace.googleworkspaceprovidermapping`
+                      - `authentik_providers_microsoft_entra.microsoftentraprovider`
+                      - `authentik_providers_microsoft_entra.microsoftentraprovidermapping`
+                      - `authentik_providers_ssf.ssfprovider`
+                      - `authentik_providers_ws_federation.wsfederationprovider`
+                      - `authentik_reports.dataexport`
+                      - `authentik_requests.requestrulechildbinding`
+                      - `authentik_requests.requestrulebinding`
+                      - `authentik_requests.requestrule`
+                      - `authentik_requests.grantrequest`
+                      - `authentik_stages_account_lockdown.accountlockdownstage`
+                      - `authentik_stages_authenticator_endpoint_gdtc.authenticatorendpointgdtcstage`
+                      - `authentik_stages_mtls.mutualtlsstage`
+                      - `authentik_stages_source.sourcestage`
+                    type: string
+                  objectId:
+                    description: (String)
+                    type: string
+                  permission:
+                    description: (String)
+                    type: string
+                  user:
+                    description: (Number)
+                    type: number
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: |-
+                        LastTransitionTime is the last time this condition transitioned from one
+                        status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: |-
+                        A Message containing details about this condition's last transition from
+                        one status to another, if any.
+                      type: string
+                    observedGeneration:
+                      description: |-
+                        ObservedGeneration represents the .metadata.generation that the condition was set based upon.
+                        For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+                        with respect to the current state of the instance.
+                      format: int64
+                      type: integer
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: |-
+                        Type of this condition. At most one of each condition type may apply to
+                        a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+                x-kubernetes-list-map-keys:
+                - type
+                x-kubernetes-list-type: map
+              lastHandledReconcileAt:
+                description: |-
+                  LastHandledReconcileAt holds the value of the most recent
+                  reconcile-requested-at annotation token that the controller has
+                  processed. Users can compare this to the annotation to determine
+                  whether a reconcile request has been handled.
+                type: string
+              observedGeneration:
+                description: |-
+                  ObservedGeneration is the latest metadata.generation
+                  which resulted in either a ready state, or stalled due to error
+                  it can not recover from without human intervention.
+                format: int64
+                type: integer
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

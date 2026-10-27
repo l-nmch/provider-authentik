@@ -1,0 +1,69 @@
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/application
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: example-app
+    protocolProvider: ${authentik_provider_oauth2.name.id}
+    slug: example-app
+
+---
+
+apiVersion: policy.authentik.m.crossplane.io/v1alpha1
+kind: PolicyBinding
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/application
+  labels:
+    testing.upbound.io/example-name: app-access
+  name: app-access
+  namespace: crossplane-system
+spec:
+  forProvider:
+    order: 0
+    policy: ${authentik_policy_expression.policy.id}
+    target: ${authentik_application.name.uuid}
+
+---
+
+apiVersion: policy.authentik.m.crossplane.io/v1alpha1
+kind: ExpressionPolicy
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/application
+  labels:
+    testing.upbound.io/example-name: policy
+  name: policy
+  namespace: crossplane-system
+spec:
+  forProvider:
+    expression: return True
+    name: example
+
+---
+
+apiVersion: provider.authentik.m.crossplane.io/v1alpha1
+kind: OAuth2Provider
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/application
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    authorizationFlowSelector:
+      matchLabels:
+        testing.upbound.io/example-name: authentik_flow
+    clientId: example-app
+    clientSecretSecretRef:
+      key: example-key
+      name: example-secret
+    name: example-app

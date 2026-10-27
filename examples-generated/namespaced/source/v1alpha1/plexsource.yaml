@@ -1,0 +1,23 @@
+apiVersion: source.authentik.m.crossplane.io/v1alpha1
+kind: PlexSource
+metadata:
+  annotations:
+    meta.upbound.io/example-id: source/v1alpha1/plexsource
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    authenticationFlowSelector:
+      matchLabels:
+        testing.upbound.io/example-name: authentik_flow
+    clientId: foo-bar-baz
+    enrollmentFlowSelector:
+      matchLabels:
+        testing.upbound.io/example-name: authentik_flow
+    name: plex
+    plexTokenSecretRef:
+      key: example-key
+      name: example-secret
+    slug: plex

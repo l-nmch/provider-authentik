@@ -1,0 +1,61 @@
+apiVersion: core.authentik.crossplane.io/v1alpha1
+kind: ApplicationEntitlement
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/applicationentitlement
+  labels:
+    testing.upbound.io/example-name: ent
+  name: ent
+spec:
+  forProvider:
+    applicationSelector:
+      matchLabels:
+        testing.upbound.io/example-name: name
+    name: test-ent
+
+---
+
+apiVersion: core.authentik.crossplane.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/applicationentitlement
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+spec:
+  forProvider:
+    name: example-app
+    slug: example-app
+
+---
+
+apiVersion: core.authentik.crossplane.io/v1alpha1
+kind: Group
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/applicationentitlement
+  labels:
+    testing.upbound.io/example-name: group
+  name: group
+spec:
+  forProvider:
+    name: test-ent-group
+
+---
+
+apiVersion: policy.authentik.crossplane.io/v1alpha1
+kind: PolicyBinding
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/applicationentitlement
+  labels:
+    testing.upbound.io/example-name: test-ent-access
+  name: test-ent-access
+spec:
+  forProvider:
+    groupSelector:
+      matchLabels:
+        testing.upbound.io/example-name: group
+    order: 0
+    target: ${authentik_application_entitlement.ent.uuid}

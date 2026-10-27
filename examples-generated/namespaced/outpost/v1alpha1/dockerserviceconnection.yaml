@@ -1,0 +1,48 @@
+apiVersion: outpost.authentik.m.crossplane.io/v1alpha1
+kind: DockerServiceConnection
+metadata:
+  annotations:
+    meta.upbound.io/example-id: outpost/v1alpha1/dockerserviceconnection
+  labels:
+    testing.upbound.io/example-name: local
+  name: local
+  namespace: crossplane-system
+spec:
+  forProvider:
+    local: true
+    name: local
+
+---
+
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: CertificateKeyPair
+metadata:
+  annotations:
+    meta.upbound.io/example-id: outpost/v1alpha1/dockerserviceconnection
+  labels:
+    testing.upbound.io/example-name: tls-auth
+  name: tls-auth
+  namespace: crossplane-system
+spec:
+  forProvider:
+    certificateData: '...'
+    keyDataSecretRef:
+      key: example-key
+      name: example-secret
+    name: docker-tls-auth
+
+---
+
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: CertificateKeyPair
+metadata:
+  annotations:
+    meta.upbound.io/example-id: outpost/v1alpha1/dockerserviceconnection
+  labels:
+    testing.upbound.io/example-name: tls-verification
+  name: tls-verification
+  namespace: crossplane-system
+spec:
+  forProvider:
+    certificateData: '...'
+    name: docker-tls-verification

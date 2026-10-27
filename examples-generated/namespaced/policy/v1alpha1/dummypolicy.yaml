@@ -1,0 +1,12 @@
+apiVersion: policy.authentik.m.crossplane.io/v1alpha1
+kind: DummyPolicy
+metadata:
+  annotations:
+    meta.upbound.io/example-id: policy/v1alpha1/dummypolicy
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: dummy

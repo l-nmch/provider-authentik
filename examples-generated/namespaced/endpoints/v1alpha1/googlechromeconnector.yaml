@@ -1,0 +1,14 @@
+apiVersion: endpoints.authentik.m.crossplane.io/v1alpha1
+kind: GoogleChromeConnector
+metadata:
+  annotations:
+    meta.upbound.io/example-id: endpoints/v1alpha1/googlechromeconnector
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    credentials: ${file("${path.module}/service-account.json")}
+    enabled: true
+    name: google-chrome

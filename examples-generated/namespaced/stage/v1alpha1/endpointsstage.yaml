@@ -1,0 +1,13 @@
+apiVersion: stage.authentik.m.crossplane.io/v1alpha1
+kind: EndpointsStage
+metadata:
+  annotations:
+    meta.upbound.io/example-id: stage/v1alpha1/endpointsstage
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    connector: ${authentik_endpoints_connector_agent.name.id}
+    name: agent-connector

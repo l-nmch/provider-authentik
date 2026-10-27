@@ -1,0 +1,12 @@
+apiVersion: outpost.authentik.crossplane.io/v1alpha1
+kind: KubernetesServiceConnection
+metadata:
+  annotations:
+    meta.upbound.io/example-id: outpost/v1alpha1/kubernetesserviceconnection
+  labels:
+    testing.upbound.io/example-name: local
+  name: local
+spec:
+  forProvider:
+    local: true
+    name: local

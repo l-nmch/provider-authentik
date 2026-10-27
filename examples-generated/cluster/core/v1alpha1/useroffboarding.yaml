@@ -1,0 +1,32 @@
+apiVersion: core.authentik.crossplane.io/v1alpha1
+kind: UserOffboarding
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/useroffboarding
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    action: deactivate
+    revokeSessions: true
+    revokeTokens: true
+    scheduledAt: "2026-12-31T00:00:00Z"
+    userSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+
+---
+
+apiVersion: core.authentik.crossplane.io/v1alpha1
+kind: User
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/useroffboarding
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    name: Leaving User
+    username: leaving-user

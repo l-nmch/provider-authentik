@@ -1,0 +1,15 @@
+apiVersion: stage.authentik.m.crossplane.io/v1alpha1
+kind: PromptField
+metadata:
+  annotations:
+    meta.upbound.io/example-id: stage/v1alpha1/promptfield
+  labels:
+    testing.upbound.io/example-name: field
+  name: field
+  namespace: crossplane-system
+spec:
+  forProvider:
+    fieldKey: username
+    label: Username
+    name: username
+    type: username

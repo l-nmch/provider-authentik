@@ -1,0 +1,15 @@
+apiVersion: request.authentik.crossplane.io/v1alpha1
+kind: Rule
+metadata:
+  annotations:
+    meta.upbound.io/example-id: request/v1alpha1/rule
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    minReviewers: 1
+    minReviewersIsPerGroup: false
+    name: Example access request rule
+    notificationMode: all
+    policyEngineMode: any

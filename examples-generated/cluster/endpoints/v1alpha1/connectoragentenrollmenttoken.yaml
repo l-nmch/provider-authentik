@@ -1,0 +1,14 @@
+apiVersion: endpoints.authentik.crossplane.io/v1alpha1
+kind: ConnectorAgentEnrollmentToken
+metadata:
+  annotations:
+    meta.upbound.io/example-id: endpoints/v1alpha1/connectoragentenrollmenttoken
+  labels:
+    testing.upbound.io/example-name: token
+  name: token
+spec:
+  forProvider:
+    connector: ${authentik_endpoints_connector_agent.agent.id}
+    expiring: false
+    name: my-enrollment token
+    retrieveKey: true

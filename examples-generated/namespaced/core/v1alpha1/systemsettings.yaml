@@ -1,0 +1,12 @@
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: SystemSettings
+metadata:
+  annotations:
+    meta.upbound.io/example-id: core/v1alpha1/systemsettings
+  labels:
+    testing.upbound.io/example-name: settings
+  name: settings
+  namespace: crossplane-system
+spec:
+  forProvider:
+    defaultUserChangeUsername: true

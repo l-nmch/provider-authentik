@@ -1,0 +1,13 @@
+apiVersion: stage.authentik.crossplane.io/v1alpha1
+kind: RedirectStage
+metadata:
+  annotations:
+    meta.upbound.io/example-id: stage/v1alpha1/redirectstage
+  labels:
+    testing.upbound.io/example-name: static
+  name: static
+spec:
+  forProvider:
+    mode: static
+    name: static-redirect
+    targetStatic: https://goauthentik.io

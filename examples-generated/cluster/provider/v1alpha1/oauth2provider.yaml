@@ -1,0 +1,31 @@
+apiVersion: provider.authentik.crossplane.io/v1alpha1
+kind: OAuth2Provider
+metadata:
+  annotations:
+    meta.upbound.io/example-id: provider/v1alpha1/oauth2provider
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+spec:
+  forProvider:
+    allowedRedirectUris:
+    - matching_mode: strict
+      url: http://localhost
+    clientId: grafana
+    name: grafana
+
+---
+
+apiVersion: core.authentik.crossplane.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    meta.upbound.io/example-id: provider/v1alpha1/oauth2provider
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+spec:
+  forProvider:
+    name: test app
+    protocolProvider: ${authentik_provider_oauth2.name.id}
+    slug: test-app
