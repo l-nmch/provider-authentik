@@ -17,6 +17,7 @@ type ApplicationEntitlementInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/core/v1alpha1.Application
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	Application *string `json:"application,omitempty" tf:"application,omitempty"`
 
 	// Reference to a Application in core to populate application.
@@ -55,6 +56,7 @@ type ApplicationEntitlementParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/core/v1alpha1.Application
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	Application *string `json:"application,omitempty" tf:"application,omitempty"`
 

@@ -9,6 +9,7 @@ package v1alpha1
 import (
 	"context"
 	reference "github.com/crossplane/crossplane-runtime/v2/pkg/reference"
+	resource "github.com/crossplane/upjet/v2/pkg/resource"
 	v1alpha1 "github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
@@ -23,7 +24,7 @@ func (mg *ApplicationEntitlement) ResolveReferences(ctx context.Context, c clien
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.Application),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.ApplicationRef,
 		Selector:     mg.Spec.ForProvider.ApplicationSelector,
@@ -40,7 +41,7 @@ func (mg *ApplicationEntitlement) ResolveReferences(ctx context.Context, c clien
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.Application),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.ApplicationRef,
 		Selector:     mg.Spec.InitProvider.ApplicationSelector,
@@ -85,7 +86,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.FlowAuthentication),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.FlowAuthenticationRef,
 		Selector:     mg.Spec.ForProvider.FlowAuthenticationSelector,
@@ -102,7 +103,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.FlowDeviceCode),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.FlowDeviceCodeRef,
 		Selector:     mg.Spec.ForProvider.FlowDeviceCodeSelector,
@@ -119,7 +120,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.FlowInvalidation),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.FlowInvalidationRef,
 		Selector:     mg.Spec.ForProvider.FlowInvalidationSelector,
@@ -136,7 +137,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.FlowLockdown),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.FlowLockdownRef,
 		Selector:     mg.Spec.ForProvider.FlowLockdownSelector,
@@ -153,7 +154,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.FlowRecovery),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.FlowRecoveryRef,
 		Selector:     mg.Spec.ForProvider.FlowRecoverySelector,
@@ -170,7 +171,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.FlowUnenrollment),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.FlowUnenrollmentRef,
 		Selector:     mg.Spec.ForProvider.FlowUnenrollmentSelector,
@@ -187,7 +188,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.FlowUserSettings),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.ForProvider.FlowUserSettingsRef,
 		Selector:     mg.Spec.ForProvider.FlowUserSettingsSelector,
@@ -238,7 +239,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.FlowAuthentication),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.FlowAuthenticationRef,
 		Selector:     mg.Spec.InitProvider.FlowAuthenticationSelector,
@@ -255,7 +256,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.FlowDeviceCode),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.FlowDeviceCodeRef,
 		Selector:     mg.Spec.InitProvider.FlowDeviceCodeSelector,
@@ -272,7 +273,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.FlowInvalidation),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.FlowInvalidationRef,
 		Selector:     mg.Spec.InitProvider.FlowInvalidationSelector,
@@ -289,7 +290,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.FlowLockdown),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.FlowLockdownRef,
 		Selector:     mg.Spec.InitProvider.FlowLockdownSelector,
@@ -306,7 +307,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.FlowRecovery),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.FlowRecoveryRef,
 		Selector:     mg.Spec.InitProvider.FlowRecoverySelector,
@@ -323,7 +324,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.FlowUnenrollment),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.FlowUnenrollmentRef,
 		Selector:     mg.Spec.InitProvider.FlowUnenrollmentSelector,
@@ -340,7 +341,7 @@ func (mg *Brand) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.NamespacedResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.FlowUserSettings),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("uuid", true),
 		Namespace:    mg.GetNamespace(),
 		Reference:    mg.Spec.InitProvider.FlowUserSettingsRef,
 		Selector:     mg.Spec.InitProvider.FlowUserSettingsSelector,

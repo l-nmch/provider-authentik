@@ -1,0 +1,23 @@
+apiVersion: flow.authentik.m.crossplane.io/v1alpha1
+kind: Flow
+metadata:
+  name: xptest-authorization
+  namespace: xptest
+spec:
+  forProvider:
+    name: xptest-authorization
+    slug: xptest-authorization
+    title: xptest authorization
+    designation: authorization
+---
+apiVersion: flow.authentik.m.crossplane.io/v1alpha1
+kind: Flow
+metadata:
+  name: xptest-invalidation
+  namespace: xptest
+spec:
+  forProvider:
+    name: xptest-invalidation
+    slug: xptest-invalidation
+    title: xptest invalidation
+    designation: invalidation

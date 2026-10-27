@@ -1,0 +1,20 @@
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: Application
+metadata:
+  name: xptest
+  namespace: xptest
+spec:
+  forProvider:
+    name: xptest
+    slug: xptest
+---
+apiVersion: core.authentik.m.crossplane.io/v1alpha1
+kind: ApplicationEntitlement
+metadata:
+  name: xptest
+  namespace: xptest
+spec:
+  forProvider:
+    name: xptest-entitlement
+    applicationRef:
+      name: xptest

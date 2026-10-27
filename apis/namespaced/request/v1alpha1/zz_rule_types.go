@@ -47,6 +47,7 @@ type RuleInitParameters struct {
 	// (String) UUID or slug of the flow shown to the requester when creating a request against this rule.
 	// UUID or slug of the flow shown to the requester when creating a request against this rule.
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	RequestFlow *string `json:"requestFlow,omitempty" tf:"request_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate requestFlow.
@@ -141,6 +142,7 @@ type RuleParameters struct {
 	// (String) UUID or slug of the flow shown to the requester when creating a request against this rule.
 	// UUID or slug of the flow shown to the requester when creating a request against this rule.
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	RequestFlow *string `json:"requestFlow,omitempty" tf:"request_flow,omitempty"`
 

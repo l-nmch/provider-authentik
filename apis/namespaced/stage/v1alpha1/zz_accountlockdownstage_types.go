@@ -32,6 +32,7 @@ type AccountLockdownStageInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	SelfServiceCompletionFlow *string `json:"selfServiceCompletionFlow,omitempty" tf:"self_service_completion_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate selfServiceCompletionFlow.
@@ -98,6 +99,7 @@ type AccountLockdownStageParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	SelfServiceCompletionFlow *string `json:"selfServiceCompletionFlow,omitempty" tf:"self_service_completion_flow,omitempty"`
 

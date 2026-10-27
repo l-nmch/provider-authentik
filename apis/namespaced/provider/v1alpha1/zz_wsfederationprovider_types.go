@@ -22,6 +22,7 @@ type WSFederationProviderInitParameters struct {
 	AssertionValidNotOnOrAfter *string `json:"assertionValidNotOnOrAfter,omitempty" tf:"assertion_valid_not_on_or_after,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate authenticationFlow.
@@ -44,6 +45,7 @@ type WSFederationProviderInitParameters struct {
 	AuthnContextClassRefMappingSelector *v2.NamespacedSelector `json:"authnContextClassRefMappingSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate authorizationFlow.
@@ -74,6 +76,7 @@ type WSFederationProviderInitParameters struct {
 	EncryptionKpSelector *v2.NamespacedSelector `json:"encryptionKpSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate invalidationFlow.
@@ -211,6 +214,7 @@ type WSFederationProviderParameters struct {
 	AssertionValidNotOnOrAfter *string `json:"assertionValidNotOnOrAfter,omitempty" tf:"assertion_valid_not_on_or_after,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
@@ -235,6 +239,7 @@ type WSFederationProviderParameters struct {
 	AuthnContextClassRefMappingSelector *v2.NamespacedSelector `json:"authnContextClassRefMappingSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 
@@ -268,6 +273,7 @@ type WSFederationProviderParameters struct {
 	EncryptionKpSelector *v2.NamespacedSelector `json:"encryptionKpSelector,omitempty" tf:"-"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
 

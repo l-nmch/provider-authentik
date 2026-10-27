@@ -60,6 +60,7 @@ type OAuth2DCRProviderInitParameters struct {
 	// (String) Authorization flow applied to dynamically registered clients.
 	// Authorization flow applied to dynamically registered clients.
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	OverrideAuthorizationFlow *string `json:"overrideAuthorizationFlow,omitempty" tf:"override_authorization_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate overrideAuthorizationFlow.
@@ -72,6 +73,7 @@ type OAuth2DCRProviderInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	OverrideInvalidationFlow *string `json:"overrideInvalidationFlow,omitempty" tf:"override_invalidation_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate overrideInvalidationFlow.
@@ -208,6 +210,7 @@ type OAuth2DCRProviderParameters struct {
 	// (String) Authorization flow applied to dynamically registered clients.
 	// Authorization flow applied to dynamically registered clients.
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	OverrideAuthorizationFlow *string `json:"overrideAuthorizationFlow,omitempty" tf:"override_authorization_flow,omitempty"`
 
@@ -221,6 +224,7 @@ type OAuth2DCRProviderParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	OverrideInvalidationFlow *string `json:"overrideInvalidationFlow,omitempty" tf:"override_invalidation_flow,omitempty"`
 

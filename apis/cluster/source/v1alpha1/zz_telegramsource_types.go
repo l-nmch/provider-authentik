@@ -16,6 +16,7 @@ import (
 type TelegramSourceInitParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate authenticationFlow.
@@ -34,6 +35,7 @@ type TelegramSourceInitParameters struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	EnrollmentFlow *string `json:"enrollmentFlow,omitempty" tf:"enrollment_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate enrollmentFlow.
@@ -53,6 +55,7 @@ type TelegramSourceInitParameters struct {
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	PreAuthenticationFlow *string `json:"preAuthenticationFlow,omitempty" tf:"pre_authentication_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate preAuthenticationFlow.
@@ -140,6 +143,7 @@ type TelegramSourceObservation struct {
 type TelegramSourceParameters struct {
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
@@ -162,6 +166,7 @@ type TelegramSourceParameters struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	EnrollmentFlow *string `json:"enrollmentFlow,omitempty" tf:"enrollment_flow,omitempty"`
 
@@ -184,6 +189,7 @@ type TelegramSourceParameters struct {
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	PreAuthenticationFlow *string `json:"preAuthenticationFlow,omitempty" tf:"pre_authentication_flow,omitempty"`
 

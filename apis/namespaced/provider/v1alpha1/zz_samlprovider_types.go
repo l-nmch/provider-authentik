@@ -32,6 +32,7 @@ type SAMLProviderInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate authenticationFlow.
@@ -56,6 +57,7 @@ type SAMLProviderInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate authorizationFlow.
@@ -93,6 +95,7 @@ type SAMLProviderInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate invalidationFlow.
@@ -408,6 +411,7 @@ type SAMLProviderParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
@@ -434,6 +438,7 @@ type SAMLProviderParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 
@@ -475,6 +480,7 @@ type SAMLProviderParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
 

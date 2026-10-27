@@ -20,6 +20,7 @@ type LDAPProviderInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	BindFlow *string `json:"bindFlow,omitempty" tf:"bind_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate bindFlow.
@@ -70,6 +71,7 @@ type LDAPProviderInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	UnbindFlow *string `json:"unbindFlow,omitempty" tf:"unbind_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate unbindFlow.
@@ -133,6 +135,7 @@ type LDAPProviderParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	BindFlow *string `json:"bindFlow,omitempty" tf:"bind_flow,omitempty"`
 
@@ -192,6 +195,7 @@ type LDAPProviderParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	UnbindFlow *string `json:"unbindFlow,omitempty" tf:"unbind_flow,omitempty"`
 

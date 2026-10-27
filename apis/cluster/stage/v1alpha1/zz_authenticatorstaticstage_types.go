@@ -17,6 +17,7 @@ type AuthenticatorStaticStageInitParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	ConfigureFlow *string `json:"configureFlow,omitempty" tf:"configure_flow,omitempty"`
 
 	// Reference to a Flow in flow to populate configureFlow.
@@ -71,6 +72,7 @@ type AuthenticatorStaticStageParameters struct {
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	ConfigureFlow *string `json:"configureFlow,omitempty" tf:"configure_flow,omitempty"`
 
