@@ -327,6 +327,18 @@ spec:
                             type: string
                         type: object
                     type: object
+                  defaultNameIdPolicy:
+                    description: |-
+                      (String) Allowed values:
+                      Allowed values:
+                      - `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
+                      - `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
+                      - `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName`
+                      - `urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName`
+                      - `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`
+                      - `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
+                      Defaults to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
+                    type: string
                   defaultRelayState:
                     description: |-
                       (String) Defaults to “.
@@ -1239,6 +1251,18 @@ spec:
                             type: string
                         type: object
                     type: object
+                  defaultNameIdPolicy:
+                    description: |-
+                      (String) Allowed values:
+                      Allowed values:
+                      - `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
+                      - `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
+                      - `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName`
+                      - `urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName`
+                      - `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`
+                      - `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
+                      Defaults to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
+                    type: string
                   defaultRelayState:
                     description: |-
                       (String) Defaults to “.
@@ -1967,6 +1991,18 @@ spec:
                     type: string
                   authorizationFlow:
                     description: (String)
+                    type: string
+                  defaultNameIdPolicy:
+                    description: |-
+                      (String) Allowed values:
+                      Allowed values:
+                      - `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
+                      - `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
+                      - `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName`
+                      - `urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName`
+                      - `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`
+                      - `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
+                      Defaults to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
                     type: string
                   defaultRelayState:
                     description: |-

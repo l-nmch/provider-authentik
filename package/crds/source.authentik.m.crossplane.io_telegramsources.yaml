@@ -321,6 +321,9 @@ spec:
                             type: string
                         type: object
                     type: object
+                  promoted:
+                    description: Defaults to `false`.
+                    type: boolean
                   propertyMappings:
                     items:
                       type: string
@@ -626,6 +629,9 @@ spec:
                             type: string
                         type: object
                     type: object
+                  promoted:
+                    description: Defaults to `false`.
+                    type: boolean
                   propertyMappings:
                     items:
                       type: string
@@ -760,6 +766,9 @@ spec:
                     type: string
                   preAuthenticationFlow:
                     type: string
+                  promoted:
+                    description: Defaults to `false`.
+                    type: boolean
                   propertyMappings:
                     items:
                       type: string

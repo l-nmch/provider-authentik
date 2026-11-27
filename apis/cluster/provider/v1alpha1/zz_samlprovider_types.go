@@ -68,6 +68,17 @@ type SAMLProviderInitParameters struct {
 	// +kubebuilder:validation:Optional
 	AuthorizationFlowSelector *v2.Selector `json:"authorizationFlowSelector,omitempty" tf:"-"`
 
+	// (String) Allowed values:
+	// Allowed values:
+	// - `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
+	// - `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
+	// - `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName`
+	// - `urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName`
+	// - `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`
+	// - `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
+	// Defaults to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
+	DefaultNameIDPolicy *string `json:"defaultNameIdPolicy,omitempty" tf:"default_name_id_policy,omitempty"`
+
 	// (String) Defaults to “.
 	// Defaults to “.
 	DefaultRelayState *string `json:"defaultRelayState,omitempty" tf:"default_relay_state,omitempty"`
@@ -267,6 +278,17 @@ type SAMLProviderObservation struct {
 	// (String)
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 
+	// (String) Allowed values:
+	// Allowed values:
+	// - `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
+	// - `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
+	// - `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName`
+	// - `urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName`
+	// - `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`
+	// - `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
+	// Defaults to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
+	DefaultNameIDPolicy *string `json:"defaultNameIdPolicy,omitempty" tf:"default_name_id_policy,omitempty"`
+
 	// (String) Defaults to “.
 	// Defaults to “.
 	DefaultRelayState *string `json:"defaultRelayState,omitempty" tf:"default_relay_state,omitempty"`
@@ -449,6 +471,18 @@ type SAMLProviderParameters struct {
 	// Selector for a Flow in flow to populate authorizationFlow.
 	// +kubebuilder:validation:Optional
 	AuthorizationFlowSelector *v2.Selector `json:"authorizationFlowSelector,omitempty" tf:"-"`
+
+	// (String) Allowed values:
+	// Allowed values:
+	// - `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
+	// - `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`
+	// - `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName`
+	// - `urn:oasis:names:tc:SAML:2.0:nameid-format:WindowsDomainQualifiedName`
+	// - `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`
+	// - `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
+	// Defaults to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
+	// +kubebuilder:validation:Optional
+	DefaultNameIDPolicy *string `json:"defaultNameIdPolicy,omitempty" tf:"default_name_id_policy,omitempty"`
 
 	// (String) Defaults to “.
 	// Defaults to “.

@@ -150,6 +150,9 @@ type BrandInitParameters struct {
 	FlowUserSettingsSelector *v2.NamespacedSelector `json:"flowUserSettingsSelector,omitempty" tf:"-"`
 
 	// (String)
+	FlowUserSwitch *string `json:"flowUserSwitch,omitempty" tf:"flow_user_switch,omitempty"`
+
+	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/core/v1alpha1.CertificateKeyPair
 	WebCertificate *string `json:"webCertificate,omitempty" tf:"web_certificate,omitempty"`
 
@@ -218,6 +221,9 @@ type BrandObservation struct {
 
 	// (String)
 	FlowUserSettings *string `json:"flowUserSettings,omitempty" tf:"flow_user_settings,omitempty"`
+
+	// (String)
+	FlowUserSwitch *string `json:"flowUserSwitch,omitempty" tf:"flow_user_switch,omitempty"`
 
 	// (String) The ID of this resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
@@ -378,6 +384,10 @@ type BrandParameters struct {
 	// Selector for a Flow in flow to populate flowUserSettings.
 	// +kubebuilder:validation:Optional
 	FlowUserSettingsSelector *v2.NamespacedSelector `json:"flowUserSettingsSelector,omitempty" tf:"-"`
+
+	// (String)
+	// +kubebuilder:validation:Optional
+	FlowUserSwitch *string `json:"flowUserSwitch,omitempty" tf:"flow_user_switch,omitempty"`
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/l-nmch/provider-authentik/apis/namespaced/core/v1alpha1.CertificateKeyPair

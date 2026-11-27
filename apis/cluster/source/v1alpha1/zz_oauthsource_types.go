@@ -15,8 +15,8 @@ import (
 
 type OAuthSourceInitParameters struct {
 
-	// (String) Only required for OAuth1.
-	// Only required for OAuth1.
+	// (String) Only required for OAuth1. Generated.
+	// Only required for OAuth1. Generated.
 	AccessTokenURL *string `json:"accessTokenUrl,omitempty" tf:"access_token_url,omitempty"`
 
 	// (String)
@@ -42,8 +42,8 @@ type OAuthSourceInitParameters struct {
 	// Defaults to `basic_auth`.
 	AuthorizationCodeAuthMethod *string `json:"authorizationCodeAuthMethod,omitempty" tf:"authorization_code_auth_method,omitempty"`
 
-	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
 	AuthorizationURL *string `json:"authorizationUrl,omitempty" tf:"authorization_url,omitempty"`
 
 	// (String)
@@ -84,8 +84,8 @@ type OAuthSourceInitParameters struct {
 	// Manually configure JWKS keys for use with machine-to-machine authentication. JSON format expected. Use `jsonencode()` to pass objects. Generated.
 	OidcJwks *string `json:"oidcJwks,omitempty" tf:"oidc_jwks,omitempty"`
 
-	// (String) Automatically configure JWKS if not specified by oidc_well_known_url.
-	// Automatically configure JWKS if not specified by `oidc_well_known_url`.
+	// (String) Automatically configure JWKS if not specified by oidc_well_known_url. Generated.
+	// Automatically configure JWKS if not specified by `oidc_well_known_url`. Generated.
 	OidcJwksURL *string `json:"oidcJwksUrl,omitempty" tf:"oidc_jwks_url,omitempty"`
 
 	// known endpoint. URL is taken as is, and should end with .well-known/openid-configuration.
@@ -107,8 +107,8 @@ type OAuthSourceInitParameters struct {
 	// Defaults to `any`.
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
-	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
 	ProfileURL *string `json:"profileUrl,omitempty" tf:"profile_url,omitempty"`
 
 	// (Boolean) Defaults to false.
@@ -178,8 +178,8 @@ type OAuthSourceInitParameters struct {
 
 type OAuthSourceObservation struct {
 
-	// (String) Only required for OAuth1.
-	// Only required for OAuth1.
+	// (String) Only required for OAuth1. Generated.
+	// Only required for OAuth1. Generated.
 	AccessTokenURL *string `json:"accessTokenUrl,omitempty" tf:"access_token_url,omitempty"`
 
 	// (String)
@@ -195,8 +195,8 @@ type OAuthSourceObservation struct {
 	// Defaults to `basic_auth`.
 	AuthorizationCodeAuthMethod *string `json:"authorizationCodeAuthMethod,omitempty" tf:"authorization_code_auth_method,omitempty"`
 
-	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
 	AuthorizationURL *string `json:"authorizationUrl,omitempty" tf:"authorization_url,omitempty"`
 
 	// (String) Generated.
@@ -231,8 +231,8 @@ type OAuthSourceObservation struct {
 	// Manually configure JWKS keys for use with machine-to-machine authentication. JSON format expected. Use `jsonencode()` to pass objects. Generated.
 	OidcJwks *string `json:"oidcJwks,omitempty" tf:"oidc_jwks,omitempty"`
 
-	// (String) Automatically configure JWKS if not specified by oidc_well_known_url.
-	// Automatically configure JWKS if not specified by `oidc_well_known_url`.
+	// (String) Automatically configure JWKS if not specified by oidc_well_known_url. Generated.
+	// Automatically configure JWKS if not specified by `oidc_well_known_url`. Generated.
 	OidcJwksURL *string `json:"oidcJwksUrl,omitempty" tf:"oidc_jwks_url,omitempty"`
 
 	// known endpoint. URL is taken as is, and should end with .well-known/openid-configuration.
@@ -254,8 +254,8 @@ type OAuthSourceObservation struct {
 	// Defaults to `any`.
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
-	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
 	ProfileURL *string `json:"profileUrl,omitempty" tf:"profile_url,omitempty"`
 
 	// (Boolean) Defaults to false.
@@ -316,8 +316,8 @@ type OAuthSourceObservation struct {
 
 type OAuthSourceParameters struct {
 
-	// (String) Only required for OAuth1.
-	// Only required for OAuth1.
+	// (String) Only required for OAuth1. Generated.
+	// Only required for OAuth1. Generated.
 	// +kubebuilder:validation:Optional
 	AccessTokenURL *string `json:"accessTokenUrl,omitempty" tf:"access_token_url,omitempty"`
 
@@ -347,8 +347,8 @@ type OAuthSourceParameters struct {
 	// +kubebuilder:validation:Optional
 	AuthorizationCodeAuthMethod *string `json:"authorizationCodeAuthMethod,omitempty" tf:"authorization_code_auth_method,omitempty"`
 
-	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
 	// +kubebuilder:validation:Optional
 	AuthorizationURL *string `json:"authorizationUrl,omitempty" tf:"authorization_url,omitempty"`
 
@@ -397,8 +397,8 @@ type OAuthSourceParameters struct {
 	// +kubebuilder:validation:Optional
 	OidcJwks *string `json:"oidcJwks,omitempty" tf:"oidc_jwks,omitempty"`
 
-	// (String) Automatically configure JWKS if not specified by oidc_well_known_url.
-	// Automatically configure JWKS if not specified by `oidc_well_known_url`.
+	// (String) Automatically configure JWKS if not specified by oidc_well_known_url. Generated.
+	// Automatically configure JWKS if not specified by `oidc_well_known_url`. Generated.
 	// +kubebuilder:validation:Optional
 	OidcJwksURL *string `json:"oidcJwksUrl,omitempty" tf:"oidc_jwks_url,omitempty"`
 
@@ -424,8 +424,8 @@ type OAuthSourceParameters struct {
 	// +kubebuilder:validation:Optional
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
-	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
 	// +kubebuilder:validation:Optional
 	ProfileURL *string `json:"profileUrl,omitempty" tf:"profile_url,omitempty"`
 

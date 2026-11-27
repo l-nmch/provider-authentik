@@ -74,8 +74,8 @@ spec:
                 properties:
                   accessTokenUrl:
                     description: |-
-                      (String) Only required for OAuth1.
-                      Only required for OAuth1.
+                      (String) Only required for OAuth1. Generated.
+                      Only required for OAuth1. Generated.
                     type: string
                   additionalScopes:
                     description: (String)
@@ -167,8 +167,8 @@ spec:
                     type: string
                   authorizationUrl:
                     description: |-
-                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
                     type: string
                   consumerKey:
                     description: (String)
@@ -291,8 +291,8 @@ spec:
                     type: string
                   oidcJwksUrl:
                     description: |-
-                      (String) Automatically configure JWKS if not specified by oidc_well_known_url.
-                      Automatically configure JWKS if not specified by `oidc_well_known_url`.
+                      (String) Automatically configure JWKS if not specified by oidc_well_known_url. Generated.
+                      Automatically configure JWKS if not specified by `oidc_well_known_url`. Generated.
                     type: string
                   oidcWellKnownUrl:
                     description: |-
@@ -318,8 +318,8 @@ spec:
                     type: string
                   profileUrl:
                     description: |-
-                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
                     type: string
                   promoted:
                     description: |-
@@ -481,8 +481,8 @@ spec:
                 properties:
                   accessTokenUrl:
                     description: |-
-                      (String) Only required for OAuth1.
-                      Only required for OAuth1.
+                      (String) Only required for OAuth1. Generated.
+                      Only required for OAuth1. Generated.
                     type: string
                   additionalScopes:
                     description: (String)
@@ -574,8 +574,8 @@ spec:
                     type: string
                   authorizationUrl:
                     description: |-
-                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
                     type: string
                   consumerKey:
                     description: (String)
@@ -698,8 +698,8 @@ spec:
                     type: string
                   oidcJwksUrl:
                     description: |-
-                      (String) Automatically configure JWKS if not specified by oidc_well_known_url.
-                      Automatically configure JWKS if not specified by `oidc_well_known_url`.
+                      (String) Automatically configure JWKS if not specified by oidc_well_known_url. Generated.
+                      Automatically configure JWKS if not specified by `oidc_well_known_url`. Generated.
                     type: string
                   oidcWellKnownUrl:
                     description: |-
@@ -725,8 +725,8 @@ spec:
                     type: string
                   profileUrl:
                     description: |-
-                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
                     type: string
                   promoted:
                     description: |-
@@ -988,8 +988,8 @@ spec:
                 properties:
                   accessTokenUrl:
                     description: |-
-                      (String) Only required for OAuth1.
-                      Only required for OAuth1.
+                      (String) Only required for OAuth1. Generated.
+                      Only required for OAuth1. Generated.
                     type: string
                   additionalScopes:
                     description: (String)
@@ -1007,8 +1007,8 @@ spec:
                     type: string
                   authorizationUrl:
                     description: |-
-                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
                     type: string
                   callbackUri:
                     description: |-
@@ -1048,8 +1048,8 @@ spec:
                     type: string
                   oidcJwksUrl:
                     description: |-
-                      (String) Automatically configure JWKS if not specified by oidc_well_known_url.
-                      Automatically configure JWKS if not specified by `oidc_well_known_url`.
+                      (String) Automatically configure JWKS if not specified by oidc_well_known_url. Generated.
+                      Automatically configure JWKS if not specified by `oidc_well_known_url`. Generated.
                     type: string
                   oidcWellKnownUrl:
                     description: |-
@@ -1075,8 +1075,8 @@ spec:
                     type: string
                   profileUrl:
                     description: |-
-                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
-                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
+                      (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
+                      Manually configure OAuth2 URLs when `oidc_well_known_url` is not set. Generated.
                     type: string
                   promoted:
                     description: |-

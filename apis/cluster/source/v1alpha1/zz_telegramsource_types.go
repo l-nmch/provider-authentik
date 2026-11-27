@@ -66,6 +66,9 @@ type TelegramSourceInitParameters struct {
 	// +kubebuilder:validation:Optional
 	PreAuthenticationFlowSelector *v2.Selector `json:"preAuthenticationFlowSelector,omitempty" tf:"-"`
 
+	// Defaults to `false`.
+	Promoted *bool `json:"promoted,omitempty" tf:"promoted,omitempty"`
+
 	PropertyMappings []*string `json:"propertyMappings,omitempty" tf:"property_mappings,omitempty"`
 
 	PropertyMappingsGroup []*string `json:"propertyMappingsGroup,omitempty" tf:"property_mappings_group,omitempty"`
@@ -114,6 +117,9 @@ type TelegramSourceObservation struct {
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
 	PreAuthenticationFlow *string `json:"preAuthenticationFlow,omitempty" tf:"pre_authentication_flow,omitempty"`
+
+	// Defaults to `false`.
+	Promoted *bool `json:"promoted,omitempty" tf:"promoted,omitempty"`
 
 	PropertyMappings []*string `json:"propertyMappings,omitempty" tf:"property_mappings,omitempty"`
 
@@ -200,6 +206,10 @@ type TelegramSourceParameters struct {
 	// Selector for a Flow in flow to populate preAuthenticationFlow.
 	// +kubebuilder:validation:Optional
 	PreAuthenticationFlowSelector *v2.Selector `json:"preAuthenticationFlowSelector,omitempty" tf:"-"`
+
+	// Defaults to `false`.
+	// +kubebuilder:validation:Optional
+	Promoted *bool `json:"promoted,omitempty" tf:"promoted,omitempty"`
 
 	// +kubebuilder:validation:Optional
 	PropertyMappings []*string `json:"propertyMappings,omitempty" tf:"property_mappings,omitempty"`

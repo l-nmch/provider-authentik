@@ -17,6 +17,7 @@ import (
 	v1alpha1flow "github.com/l-nmch/provider-authentik/apis/cluster/flow/v1alpha1"
 	v1alpha1outpost "github.com/l-nmch/provider-authentik/apis/cluster/outpost/v1alpha1"
 	v1alpha1policy "github.com/l-nmch/provider-authentik/apis/cluster/policy/v1alpha1"
+	v1alpha1property "github.com/l-nmch/provider-authentik/apis/cluster/property/v1alpha1"
 	v1alpha1propertymapping "github.com/l-nmch/provider-authentik/apis/cluster/propertymapping/v1alpha1"
 	v1alpha1provider "github.com/l-nmch/provider-authentik/apis/cluster/provider/v1alpha1"
 	v1alpha1request "github.com/l-nmch/provider-authentik/apis/cluster/request/v1alpha1"
@@ -36,6 +37,7 @@ func init() {
 		v1alpha1flow.SchemeBuilder.AddToScheme,
 		v1alpha1outpost.SchemeBuilder.AddToScheme,
 		v1alpha1policy.SchemeBuilder.AddToScheme,
+		v1alpha1property.SchemeBuilder.AddToScheme,
 		v1alpha1propertymapping.SchemeBuilder.AddToScheme,
 		v1alpha1provider.SchemeBuilder.AddToScheme,
 		v1alpha1request.SchemeBuilder.AddToScheme,

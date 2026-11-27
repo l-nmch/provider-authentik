@@ -1,0 +1,13 @@
+apiVersion: property.authentik.m.crossplane.io/v1alpha1
+kind: MappingSourceTelegram
+metadata:
+  annotations:
+    meta.upbound.io/example-id: property/v1alpha1/mappingsourcetelegram
+  labels:
+    testing.upbound.io/example-name: name
+  name: name
+  namespace: crossplane-system
+spec:
+  forProvider:
+    expression: 'return {"username": data}'
+    name: custom-field
