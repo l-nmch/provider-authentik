@@ -1,7 +1,7 @@
 # Build terraform-provider-authentik from source, with the patches of hack/upstream applied when
 # there are any (see hack/upstream/README.md), so that its dependencies can be raised ahead of
 # upstream. Built on the build platform, cross-compiled for the target.
-FROM --platform=$BUILDPLATFORM golang:1.26.10-alpine AS tfprovider
+FROM --platform=$BUILDPLATFORM golang:1.27.4-alpine AS tfprovider
 RUN apk --no-cache add git
 ARG TARGETOS
 ARG TARGETARCH
