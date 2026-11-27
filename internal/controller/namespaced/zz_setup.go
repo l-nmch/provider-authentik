@@ -48,6 +48,7 @@ import (
 	policybinding "github.com/l-nmch/provider-authentik/internal/controller/namespaced/policy/policybinding"
 	reputationpolicy "github.com/l-nmch/provider-authentik/internal/controller/namespaced/policy/reputationpolicy"
 	uniquepasswordpolicy "github.com/l-nmch/provider-authentik/internal/controller/namespaced/policy/uniquepasswordpolicy"
+	mappingsourcetelegram "github.com/l-nmch/provider-authentik/internal/controller/namespaced/property/mappingsourcetelegram"
 	notificationpropertymapping "github.com/l-nmch/provider-authentik/internal/controller/namespaced/propertymapping/notificationpropertymapping"
 	providergoogleworkspacepropertymapping "github.com/l-nmch/provider-authentik/internal/controller/namespaced/propertymapping/providergoogleworkspacepropertymapping"
 	providermicrosoftentrapropertymapping "github.com/l-nmch/provider-authentik/internal/controller/namespaced/propertymapping/providermicrosoftentrapropertymapping"
@@ -158,6 +159,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		policybinding.Setup,
 		reputationpolicy.Setup,
 		uniquepasswordpolicy.Setup,
+		mappingsourcetelegram.Setup,
 		notificationpropertymapping.Setup,
 		providergoogleworkspacepropertymapping.Setup,
 		providermicrosoftentrapropertymapping.Setup,
@@ -274,6 +276,7 @@ func SetupGated(mgr ctrl.Manager, o controller.Options) error {
 		policybinding.SetupGated,
 		reputationpolicy.SetupGated,
 		uniquepasswordpolicy.SetupGated,
+		mappingsourcetelegram.SetupGated,
 		notificationpropertymapping.SetupGated,
 		providergoogleworkspacepropertymapping.SetupGated,
 		providermicrosoftentrapropertymapping.SetupGated,
@@ -389,6 +392,7 @@ func SetupWebhookWithManager(mgr ctrl.Manager) error {
 		policybinding.SetupWebhookWithManager,
 		reputationpolicy.SetupWebhookWithManager,
 		uniquepasswordpolicy.SetupWebhookWithManager,
+		mappingsourcetelegram.SetupWebhookWithManager,
 		notificationpropertymapping.SetupWebhookWithManager,
 		providergoogleworkspacepropertymapping.SetupWebhookWithManager,
 		providermicrosoftentrapropertymapping.SetupWebhookWithManager,

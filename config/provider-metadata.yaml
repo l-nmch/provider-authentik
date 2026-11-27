@@ -174,6 +174,7 @@ resources:
             flow_recovery: (String)
             flow_unenrollment: (String)
             flow_user_settings: (String)
+            flow_user_switch: (String)
             id: (String) The ID of this resource.
             web_certificate: (String)
         importStatements: []
@@ -982,6 +983,23 @@ resources:
             id: (String) The ID of this resource.
             name: (String)
         importStatements: []
+    authentik_property_mapping_source_telegram:
+        subCategory: Customization
+        description: Manage Telegram Source Property mappings
+        name: authentik_property_mapping_source_telegram
+        title: authentik_property_mapping_source_telegram Resource - terraform-provider-authentik
+        examples:
+            - name: name
+              manifest: |-
+                {
+                  "expression": "return {\"username\": data}",
+                  "name": "custom-field"
+                }
+        argumentDocs:
+            expression: (String)
+            id: (String) The ID of this resource.
+            name: (String)
+        importStatements: []
     authentik_provider_google_workspace Resource - terraform-provider-authentik:
         subCategory: Applications
         name: authentik_provider_google_workspace Resource - terraform-provider-authentik
@@ -1278,6 +1296,7 @@ resources:
             authn_context_class_ref_mapping: (String)
             authorization_flow: (String)
             backchannel: Defaults to frontchannel_iframe.
+            default_name_id_policy: '(String) Allowed values:'
             default_relay_state: (String) Defaults to ``.
             digest_algorithm: '(String) Allowed values:'
             encryption_kp: (String)
@@ -1306,6 +1325,7 @@ resources:
             url_sso_init: (String) Generated.
             url_sso_post: (String) Generated.
             url_sso_redirect: (String) Generated.
+            urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified: Defaults to urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified.
             verification_kp: (String)
         importStatements: []
     authentik_provider_scim:
@@ -1730,6 +1750,7 @@ resources:
             name_deny: Defaults to identifier.
             password_login_update_internal_password: (Boolean) If enabled, the authentik-stored password will be updated upon login with the Kerberos password backend Defaults to false.
             policy_engine_mode: '(String) Allowed values:'
+            promoted: (Boolean) Defaults to false.
             realm: (String) Kerberos realm
             slug: (String)
             spnego_ccache: (String) Credential cache to use for SPNEGO in form type:residual
@@ -1815,12 +1836,12 @@ resources:
                 enrollment_flow: data.authentik_flow.default-source-enrollment.id
         argumentDocs:
             S256: Defaults to none.
-            access_token_url: (String) Only required for OAuth1.
+            access_token_url: (String) Only required for OAuth1. Generated.
             additional_scopes: (String)
             any: Defaults to any.
             authentication_flow: (String)
             authorization_code_auth_method: '(String) Allowed values:'
-            authorization_url: (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
+            authorization_url: (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
             callback_uri: (String) Generated.
             consumer_key: (String)
             consumer_secret: (String, Sensitive)
@@ -1831,12 +1852,12 @@ resources:
             name: (String)
             name_deny: Defaults to identifier.
             oidc_jwks: (String) Manually configure JWKS keys for use with machine-to-machine authentication. JSON format expected. Use jsonencode() to pass objects. Generated.
-            oidc_jwks_url: (String) Automatically configure JWKS if not specified by oidc_well_known_url.
+            oidc_jwks_url: (String) Automatically configure JWKS if not specified by oidc_well_known_url. Generated.
             oidc_well_known_url: (String) Automatically configure source from OIDC well-known endpoint. URL is taken as is, and should end with .well-known/openid-configuration.
             pkce: '(String) Allowed values:'
             policy_engine_mode: '(String) Allowed values:'
             post_body: Defaults to basic_auth.
-            profile_url: (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
+            profile_url: (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set. Generated.
             promoted: (Boolean) Defaults to false.
             property_mappings: (List of String)
             property_mappings_group: (List of String)
@@ -1984,6 +2005,7 @@ resources:
             name: (String)
             policy_engine_mode: '(String) Allowed values:'
             pre_authentication_flow: (String)
+            promoted: (Boolean) Defaults to false.
             property_mappings: (List of String)
             property_mappings_group: (List of String)
             request_message_access: (Boolean) Defaults to false.

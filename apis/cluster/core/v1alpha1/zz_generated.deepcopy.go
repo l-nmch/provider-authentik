@@ -1295,6 +1295,11 @@ func (in *BrandInitParameters) DeepCopyInto(out *BrandInitParameters) {
 		*out = new(v2.Selector)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.FlowUserSwitch != nil {
+		in, out := &in.FlowUserSwitch, &out.FlowUserSwitch
+		*out = new(string)
+		**out = **in
+	}
 	if in.WebCertificate != nil {
 		in, out := &in.WebCertificate, &out.WebCertificate
 		*out = new(string)
@@ -1445,6 +1450,11 @@ func (in *BrandObservation) DeepCopyInto(out *BrandObservation) {
 	}
 	if in.FlowUserSettings != nil {
 		in, out := &in.FlowUserSettings, &out.FlowUserSettings
+		*out = new(string)
+		**out = **in
+	}
+	if in.FlowUserSwitch != nil {
+		in, out := &in.FlowUserSwitch, &out.FlowUserSwitch
 		*out = new(string)
 		**out = **in
 	}
@@ -1645,6 +1655,11 @@ func (in *BrandParameters) DeepCopyInto(out *BrandParameters) {
 		in, out := &in.FlowUserSettingsSelector, &out.FlowUserSettingsSelector
 		*out = new(v2.Selector)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.FlowUserSwitch != nil {
+		in, out := &in.FlowUserSwitch, &out.FlowUserSwitch
+		*out = new(string)
+		**out = **in
 	}
 	if in.WebCertificate != nil {
 		in, out := &in.WebCertificate, &out.WebCertificate

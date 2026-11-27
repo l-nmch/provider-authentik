@@ -63,6 +63,9 @@ type KerberosSourceInitParameters struct {
 	// Defaults to `any`.
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
+	// Defaults to `false`.
+	Promoted *bool `json:"promoted,omitempty" tf:"promoted,omitempty"`
+
 	// Kerberos realm
 	Realm *string `json:"realm,omitempty" tf:"realm,omitempty"`
 
@@ -148,6 +151,9 @@ type KerberosSourceObservation struct {
 	// - `any`
 	// Defaults to `any`.
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
+
+	// Defaults to `false`.
+	Promoted *bool `json:"promoted,omitempty" tf:"promoted,omitempty"`
 
 	// Kerberos realm
 	Realm *string `json:"realm,omitempty" tf:"realm,omitempty"`
@@ -252,6 +258,10 @@ type KerberosSourceParameters struct {
 	// Defaults to `any`.
 	// +kubebuilder:validation:Optional
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
+
+	// Defaults to `false`.
+	// +kubebuilder:validation:Optional
+	Promoted *bool `json:"promoted,omitempty" tf:"promoted,omitempty"`
 
 	// Kerberos realm
 	// +kubebuilder:validation:Optional

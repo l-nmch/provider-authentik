@@ -730,6 +730,9 @@ spec:
                             type: string
                         type: object
                     type: object
+                  flowUserSwitch:
+                    description: (String)
+                    type: string
                   webCertificate:
                     description: (String)
                     type: string
@@ -1481,6 +1484,9 @@ spec:
                             type: string
                         type: object
                     type: object
+                  flowUserSwitch:
+                    description: (String)
+                    type: string
                   webCertificate:
                     description: (String)
                     type: string
@@ -1716,6 +1722,9 @@ spec:
                     description: (String)
                     type: string
                   flowUserSettings:
+                    description: (String)
+                    type: string
+                  flowUserSwitch:
                     description: (String)
                     type: string
                   id:

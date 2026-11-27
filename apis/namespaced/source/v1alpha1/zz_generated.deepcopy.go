@@ -103,6 +103,11 @@ func (in *KerberosSourceInitParameters) DeepCopyInto(out *KerberosSourceInitPara
 		*out = new(string)
 		**out = **in
 	}
+	if in.Promoted != nil {
+		in, out := &in.Promoted, &out.Promoted
+		*out = new(bool)
+		**out = **in
+	}
 	if in.Realm != nil {
 		in, out := &in.Realm, &out.Realm
 		*out = new(string)
@@ -270,6 +275,11 @@ func (in *KerberosSourceObservation) DeepCopyInto(out *KerberosSourceObservation
 		*out = new(string)
 		**out = **in
 	}
+	if in.Promoted != nil {
+		in, out := &in.Promoted, &out.Promoted
+		*out = new(bool)
+		**out = **in
+	}
 	if in.Realm != nil {
 		in, out := &in.Realm, &out.Realm
 		*out = new(string)
@@ -403,6 +413,11 @@ func (in *KerberosSourceParameters) DeepCopyInto(out *KerberosSourceParameters) 
 	if in.PolicyEngineMode != nil {
 		in, out := &in.PolicyEngineMode, &out.PolicyEngineMode
 		*out = new(string)
+		**out = **in
+	}
+	if in.Promoted != nil {
+		in, out := &in.Promoted, &out.Promoted
+		*out = new(bool)
 		**out = **in
 	}
 	if in.Realm != nil {
@@ -3381,6 +3396,11 @@ func (in *TelegramSourceInitParameters) DeepCopyInto(out *TelegramSourceInitPara
 		*out = new(v2.NamespacedSelector)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.Promoted != nil {
+		in, out := &in.Promoted, &out.Promoted
+		*out = new(bool)
+		**out = **in
+	}
 	if in.PropertyMappings != nil {
 		in, out := &in.PropertyMappings, &out.PropertyMappings
 		*out = make([]*string, len(*in))
@@ -3520,6 +3540,11 @@ func (in *TelegramSourceObservation) DeepCopyInto(out *TelegramSourceObservation
 		*out = new(string)
 		**out = **in
 	}
+	if in.Promoted != nil {
+		in, out := &in.Promoted, &out.Promoted
+		*out = new(bool)
+		**out = **in
+	}
 	if in.PropertyMappings != nil {
 		in, out := &in.PropertyMappings, &out.PropertyMappings
 		*out = make([]*string, len(*in))
@@ -3651,6 +3676,11 @@ func (in *TelegramSourceParameters) DeepCopyInto(out *TelegramSourceParameters) 
 		in, out := &in.PreAuthenticationFlowSelector, &out.PreAuthenticationFlowSelector
 		*out = new(v2.NamespacedSelector)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.Promoted != nil {
+		in, out := &in.Promoted, &out.Promoted
+		*out = new(bool)
+		**out = **in
 	}
 	if in.PropertyMappings != nil {
 		in, out := &in.PropertyMappings, &out.PropertyMappings

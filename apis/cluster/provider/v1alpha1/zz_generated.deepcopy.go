@@ -4030,6 +4030,11 @@ func (in *SAMLProviderInitParameters) DeepCopyInto(out *SAMLProviderInitParamete
 		*out = new(v2.Selector)
 		(*in).DeepCopyInto(*out)
 	}
+	if in.DefaultNameIDPolicy != nil {
+		in, out := &in.DefaultNameIDPolicy, &out.DefaultNameIDPolicy
+		*out = new(string)
+		**out = **in
+	}
 	if in.DefaultRelayState != nil {
 		in, out := &in.DefaultRelayState, &out.DefaultRelayState
 		*out = new(string)
@@ -4305,6 +4310,11 @@ func (in *SAMLProviderObservation) DeepCopyInto(out *SAMLProviderObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.DefaultNameIDPolicy != nil {
+		in, out := &in.DefaultNameIDPolicy, &out.DefaultNameIDPolicy
+		*out = new(string)
+		**out = **in
+	}
 	if in.DefaultRelayState != nil {
 		in, out := &in.DefaultRelayState, &out.DefaultRelayState
 		*out = new(string)
@@ -4520,6 +4530,11 @@ func (in *SAMLProviderParameters) DeepCopyInto(out *SAMLProviderParameters) {
 		in, out := &in.AuthorizationFlowSelector, &out.AuthorizationFlowSelector
 		*out = new(v2.Selector)
 		(*in).DeepCopyInto(*out)
+	}
+	if in.DefaultNameIDPolicy != nil {
+		in, out := &in.DefaultNameIDPolicy, &out.DefaultNameIDPolicy
+		*out = new(string)
+		**out = **in
 	}
 	if in.DefaultRelayState != nil {
 		in, out := &in.DefaultRelayState, &out.DefaultRelayState

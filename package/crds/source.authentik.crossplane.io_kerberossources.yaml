@@ -253,6 +253,9 @@ spec:
                       - `any`
                       Defaults to `any`.
                     type: string
+                  promoted:
+                    description: Defaults to `false`.
+                    type: boolean
                   realm:
                     description: Kerberos realm
                     type: string
@@ -550,6 +553,9 @@ spec:
                       - `any`
                       Defaults to `any`.
                     type: string
+                  promoted:
+                    description: Defaults to `false`.
+                    type: boolean
                   realm:
                     description: Kerberos realm
                     type: string
@@ -792,6 +798,9 @@ spec:
                       - `any`
                       Defaults to `any`.
                     type: string
+                  promoted:
+                    description: Defaults to `false`.
+                    type: boolean
                   realm:
                     description: Kerberos realm
                     type: string

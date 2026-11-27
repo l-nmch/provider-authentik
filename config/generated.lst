@@ -41,6 +41,7 @@
   "authentik_property_mapping_source_plex",
   "authentik_property_mapping_source_saml",
   "authentik_property_mapping_source_scim",
+  "authentik_property_mapping_source_telegram",
   "authentik_provider_google_workspace",
   "authentik_provider_ldap",
   "authentik_provider_microsoft_entra",
