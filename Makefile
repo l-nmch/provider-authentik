@@ -43,7 +43,7 @@ NPROCS ?= 1
 GO_TEST_PARALLEL := $(shell echo $$(( $(NPROCS) / 2 )))
 
 GO_REQUIRED_VERSION ?= 1.26
-GOLANGCILINT_VERSION ?= 2.13.0
+GOLANGCILINT_VERSION ?= 2.15.0
 GO_STATIC_PACKAGES = $(GO_PROJECT)/cmd/provider $(GO_PROJECT)/cmd/generator
 GO_LDFLAGS += -X $(GO_PROJECT)/internal/version.Version=$(VERSION)
 GO_SUBDIRS += cmd internal apis
@@ -55,9 +55,9 @@ GO_SUBDIRS += cmd internal apis
 KIND_VERSION = v0.33.0
 UPTEST_VERSION = v2.2.0
 CRDDIFF_VERSION = v0.12.1
-CROSSPLANE_CLI_VERSION = v2.2.1
+CROSSPLANE_CLI_VERSION = v2.5.0
 # for e2e testing
-CROSSPLANE_VERSION = 2.2.1
+CROSSPLANE_VERSION = 2.5.0
 -include build/makelib/k8s_tools.mk
 
 # ====================================================================================
