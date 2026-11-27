@@ -12,7 +12,7 @@ TERRAFORM_VERSION_VALID := $(shell [ "$(TERRAFORM_VERSION)" = "`printf "$(TERRAF
 
 export TERRAFORM_PROVIDER_SOURCE ?= goauthentik/authentik
 export TERRAFORM_PROVIDER_REPO ?= https://github.com/goauthentik/terraform-provider-authentik
-export TERRAFORM_PROVIDER_VERSION ?= 2026.8.0
+export TERRAFORM_PROVIDER_VERSION ?= 2026.8.2
 export TERRAFORM_NATIVE_PROVIDER_BINARY ?= terraform-provider-authentik_v$(TERRAFORM_PROVIDER_VERSION)
 export TERRAFORM_DOCS_PATH ?= docs/resources
 
